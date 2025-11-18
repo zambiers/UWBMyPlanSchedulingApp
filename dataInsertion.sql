@@ -1,129 +1,122 @@
--- -- =========================
--- -- Students INSERT
--- -- =========================
--- INSERT INTO Students VALUES
--- (1, 'Alice', 'Smith', 'Computer Science', 'alice1@uw.edu'),
--- (2, 'Bob', 'Johnson', 'Electrical Engineering', 'bob2@uw.edu'),
--- (3, 'Carol', 'Williams', 'Mathematics', 'carol3@uw.edu'),
--- (4, 'David', 'Brown', 'Biology', 'david4@uw.edu'),
--- (5, 'Eve', 'Jones', 'Chemistry', 'eve5@uw.edu'),
--- (6, 'Frank', 'Garcia', 'Physics', 'frank6@uw.edu'),
--- (7, 'Grace', 'Miller', 'Civil Engineering', 'grace7@uw.edu'),
--- (8, 'Hank', 'Davis', 'Computer Engineering', 'hank8@uw.edu'),
--- (9, 'Ivy', 'Rodriguez', 'Nursing', 'ivy9@uw.edu'),
--- (10, 'Jack', 'Martinez', 'Business', 'jack10@uw.edu'),
--- (11, 'Kara', 'Hernandez', 'Computer Science', 'kara11@uw.edu'),
--- (12, 'Leo', 'Lopez', 'Mathematics', 'leo12@uw.edu'),
--- (13, 'Mia', 'Gonzalez', 'Physics', 'mia13@uw.edu'),
--- (14, 'Nina', 'Wilson', 'Chemistry', 'nina14@uw.edu'),
--- (15, 'Owen', 'Anderson', 'Biology', 'owen15@uw.edu'),
--- (16, 'Paul', 'Thomas', 'Business', 'paul16@uw.edu'),
--- (17, 'Quinn', 'Taylor', 'Computer Engineering', 'quinn17@uw.edu'),
--- (18, 'Rita', 'Moore', 'Nursing', 'rita18@uw.edu'),
--- (19, 'Sam', 'Jackson', 'Civil Engineering', 'sam19@uw.edu'),
--- (20, 'Tina', 'Martin', 'Electrical Engineering', 'tina20@uw.edu');
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE Section;
+TRUNCATE TABLE Students;
+TRUNCATE TABLE Professors;
+TRUNCATE TABLE Courses;
+TRUNCATE TABLE DegreeProgram;
+SET FOREIGN_KEY_CHECKS = 1;
 
--- -- =========================
--- -- Professors INSERT
--- -- =========================
--- INSERT INTO Professors VALUES
--- (1001, 'Alan', 'Kim', 'alan.kim@uw.edu', 'Computer Science'),
--- (1002, 'Betty', 'Nguyen', 'betty.nguyen@uw.edu', 'Electrical Engineering'),
--- (1003, 'Charles', 'Lee', 'charles.lee@uw.edu', 'Mathematics'),
--- (1004, 'Diana', 'Patel', 'diana.patel@uw.edu', 'Physics'),
--- (1005, 'Edward', 'Harris', 'edward.harris@uw.edu', 'Chemistry'),
--- (1006, 'Fiona', 'Young', 'fiona.young@uw.edu', 'Biology'),
--- (1007, 'George', 'Clark', 'george.clark@uw.edu', 'Computer Engineering'),
--- (1008, 'Holly', 'Walker', 'holly.walker@uw.edu', 'Civil Engineering'),
--- (1009, 'Ian', 'Hall', 'ian.hall@uw.edu', 'Business'),
--- (1010, 'Julia', 'Allen', 'julia.allen@uw.edu', 'Nursing'),
--- (1011, 'Kevin', 'Scott', 'kevin.scott@uw.edu', 'Computer Science'),
--- (1012, 'Laura', 'Adams', 'laura.adams@uw.edu', 'Mathematics'),
--- (1013, 'Mark', 'Baker', 'mark.baker@uw.edu', 'Physics'),
--- (1014, 'Nora', 'Gomez', 'nora.gomez@uw.edu', 'Chemistry'),
--- (1015, 'Oscar', 'Phillips', 'oscar.phillips@uw.edu', 'Biology'),
--- (1016, 'Pam', 'Evans', 'pam.evans@uw.edu', 'Business'),
--- (1017, 'Quincy', 'Turner', 'quincy.turner@uw.edu', 'Computer Engineering'),
--- (1018, 'Rachel', 'Carter', 'rachel.carter@uw.edu', 'Nursing'),
--- (1019, 'Steve', 'Mitchell', 'steve.mitchell@uw.edu', 'Civil Engineering'),
--- (1020, 'Tara', 'Perez', 'tara.perez@uw.edu', 'Electrical Engineering');
+-- Inserting data into DegreeProgram Table
+INSERT INTO DegreeProgram (DegreeName, DegreeType, SchoolDivision, EnrolledStudentsMax, Description) VALUES
+('Computer Science', 'Major', 'School of STEM', 150, 'Focuses on the theory and practice of computation.'),
+('Business Administration', 'Major', 'School of Business', 200, 'Provides a broad overview of business operations.'),
+('Psychology', 'Major', 'School of Interdisciplinary Arts & Sciences', 120, 'The scientific study of the human mind and its functions.'),
+('Mechanical Engineering', 'Major', 'School of STEM', 100, 'An engineering branch that combines engineering physics and mathematics principles with materials science.'),
+('Nursing', 'Major', 'School of Nursing & Health Studies', 180, 'Prepares students for a career in nursing.'),
+('Mathematics', 'Major', 'School of STEM', 80, 'The study of topics such as quantity, structure, space, and change.'),
+('English Literature', 'Major', 'School of Interdisciplinary Arts & Sciences', 90, 'The study of literature written in the English language.'),
+('Electrical Engineering', 'Major', 'School of STEM', 110, 'Deals with the study, design, and application of equipment, devices, and systems which use electricity, electronics, and electromagnetism.'),
+('Marketing', 'Minor', 'School of Business', 50, 'The action or business of promoting and selling products or services.'),
+('Data Science', 'Minor', 'School of STEM', 60, 'An inter-disciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from structured and unstructured data.'),
+('History', 'Minor', 'School of Interdisciplinary Arts & Sciences', 40, 'The study of past events.'),
+('Physics', 'Minor', 'School of STEM', 30, 'The natural science that studies matter, its motion and behavior through space and time, and the related entities of energy and force.'),
+('Creative Writing', 'Minor', 'School of Interdisciplinary Arts & Sciences', 45, 'The art of making things up in a stylish and imaginative way.'),
+('Finance', 'Minor', 'School of Business', 55, 'The management of large amounts of money, especially by governments or large companies.'),
+('Cybersecurity', 'Major', 'School of STEM', 130, 'The practice of defending computers, servers, mobile devices, electronic systems, networks, and data from malicious attacks.'),
+('Biology', 'Major', 'School of STEM', 140, 'The study of living organisms, divided into many specialized fields.'),
+('Chemistry', 'Major', 'School of STEM', 95, 'The branch of science that deals with the identification of the substances of which matter is composed.'),
+('Art History', 'Minor', 'School of Interdisciplinary Arts & Sciences', 35, 'The study of artistic objects and expression in historical and stylistic contexts.'),
+('Economics', 'Minor', 'School of Business', 65, 'The branch of knowledge concerned with the production, consumption, and transfer of wealth.'),
+('Environmental Science', 'Major', 'School of Interdisciplinary Arts & Sciences', 85, 'An interdisciplinary academic field that integrates physical, biological and information sciences to the study of the environment, and the solution of environmental problems.');
 
--- -- =========================
--- -- Courses INSERT
--- -- =========================
--- INSERT INTO Courses (CourseCode, CourseName, Credits, Major, Description) VALUES
--- (101, 'Intro to Computer Science', 3, 'Computer Science', 'Foundational concepts of computing.'),
--- (102, 'Data Structures', 4, 'Computer Science', 'Covers linked lists, trees, and graphs.'),
--- (103, 'Algorithms', 4, 'Computer Science', 'Algorithm design and analysis.'),
--- (104, 'Operating Systems', 4, 'Computer Science', 'OS principles and process management.'),
--- (105, 'Database Systems', 3, 'Computer Science', 'SQL, normalization, transactions.'),
--- (106, 'Discrete Mathematics', 3, 'Mathematics', 'Logic, set theory, combinatorics.'),
--- (107, 'Calculus I', 4, 'Mathematics', 'Limits, derivatives, applications.'),
--- (108, 'Calculus II', 4, 'Mathematics', 'Integration and series.'),
--- (109, 'Linear Algebra', 3, 'Mathematics', 'Matrices, vector spaces.'),
--- (110, 'Statistics I', 3, 'Mathematics', 'Probability, distributions.'),
--- (111, 'General Chemistry I', 4, 'Chemistry', 'Atoms, bonding, reactions.'),
--- (112, 'General Chemistry II', 4, 'Chemistry', 'Thermodynamics and kinetics.'),
--- (113, 'Organic Chemistry I', 4, 'Chemistry', 'Carbon compounds and reactions.'),
--- (114, 'Biology I', 4, 'Biology', 'Cells, genetics, evolution.'),
--- (115, 'Biology II', 4, 'Biology', 'Organ systems and ecology.'),
--- (116, 'Microeconomics', 3, 'Economics', 'Consumer theory and markets.'),
--- (117, 'Macroeconomics', 3, 'Economics', 'GDP, inflation, fiscal policy.'),
--- (118, 'Accounting I', 3, 'Business', 'Financial accounting basics.'),
--- (119, 'Marketing Principles', 3, 'Business', 'Foundations of marketing.'),
--- (120, 'Business Law', 3, 'Business', 'Legal principles affecting business.');
+-- Inserting data into Students Table
+INSERT INTO Students (StudentID, FirstName, LastName, Major, Email) VALUES
+(1, 'John', 'Smith', 'Computer Science', 'john.smith@example.com'),
+(2, 'Jane', 'Doe', 'Business Administration', 'jane.doe@example.com'),
+(3, 'Peter', 'Jones', 'Psychology', 'peter.jones@example.com'),
+(4, 'Mary', 'Williams', 'Mechanical Engineering', 'mary.williams@example.com'),
+(5, 'David', 'Brown', 'Nursing', 'david.brown@example.com'),
+(6, 'Susan', 'Davis', 'Mathematics', 'susan.davis@example.com'),
+(7, 'Michael', 'Miller', 'English Literature', 'michael.miller@example.com'),
+(8, 'Karen', 'Wilson', 'Electrical Engineering', 'karen.wilson@example.com'),
+(9, 'James', 'Moore', 'Computer Science', 'james.moore@example.com'),
+(10, 'Patricia', 'Taylor', 'Business Administration', 'patricia.taylor@example.com'),
+(11, 'Robert', 'Anderson', 'Psychology', 'robert.anderson@example.com'),
+(12, 'Linda', 'Thomas', 'Mechanical Engineering', 'linda.thomas@example.com'),
+(13, 'William', 'Jackson', 'Nursing', 'william.jackson@example.com'),
+(14, 'Elizabeth', 'White', 'Mathematics', 'elizabeth.white@example.com'),
+(15, 'Richard', 'Harris', 'English Literature', 'richard.harris@example.com'),
+(16, 'Barbara', 'Martin', 'Electrical Engineering', 'barbara.martin@example.com'),
+(17, 'Joseph', 'Thompson', 'Computer Science', 'joseph.thompson@example.com'),
+(18, 'Jennifer', 'Garcia', 'Business Administration', 'jennifer.garcia@example.com'),
+(19, 'Charles', 'Martinez', 'Psychology', 'charles.martinez@example.com'),
+(20, 'Jessica', 'Robinson', 'Mechanical Engineering', 'jessica.robinson@example.com');
 
+-- Inserting data into Professors Table
+INSERT INTO Professors (EmployeeID, FirstName, LastName, Email, MajorOfInstruction) VALUES
+(1, 'Emily', 'Johnson', 'emily.johnson@example.com', 'Computer Science'),
+(2, 'James', 'Williams', 'james.williams@example.com', 'Business Administration'),
+(3, 'Sarah', 'Brown', 'sarah.brown@example.com', 'Psychology'),
+(4, 'Daniel', 'Jones', 'daniel.jones@example.com', 'Mechanical Engineering'),
+(5, 'Laura', 'Garcia', 'laura.garcia@example.com', 'Nursing'),
+(6, 'Robert', 'Miller', 'robert.miller@example.com', 'Mathematics'),
+(7, 'Linda', 'Davis', 'linda.davis@example.com', 'English Literature'),
+(8, 'John', 'Rodriguez', 'john.rodriguez@example.com', 'Electrical Engineering'),
+(9, 'Mary', 'Martinez', 'mary.martinez@example.com', 'Computer Science'),
+(10, 'Michael', 'Hernandez', 'michael.hernandez@example.com', 'Business Administration'),
+(11, 'Patricia', 'Lopez', 'patricia.lopez@example.com', 'Psychology'),
+(12, 'David', 'Gonzalez', 'david.gonzalez@example.com', 'Mechanical Engineering'),
+(13, 'Jennifer', 'Wilson', 'jennifer.wilson@example.com', 'Nursing'),
+(14, 'Richard', 'Anderson', 'richard.anderson@example.com', 'Mathematics'),
+(15, 'Susan', 'Thomas', 'susan.thomas@example.com', 'English Literature'),
+(16, 'Joseph', 'Taylor', 'joseph.taylor@example.com', 'Electrical Engineering'),
+(17, 'Karen', 'Moore', 'karen.moore@example.com', 'Computer Science'),
+(18, 'Charles', 'Jackson', 'charles.jackson@example.com', 'Business Administration'),
+(19, 'Jessica', 'White', 'jessica.white@example.com', 'Psychology'),
+(20, 'William', 'Harris', 'william.harris@example.com', 'Mechanical Engineering');
 
--- -- =========================
--- -- Sections INSERT
--- -- Notes:
--- --      Fix this
--- -- =========================
--- ALTER TABLE Section
--- ADD COLUMN SectionID INT AUTO_INCREMENT PRIMARY KEY FIRST;
+-- Inserting data into Courses Table
+INSERT INTO Courses (CourseCode, CourseName, Credits, Major, Description) VALUES
+(101, 'Introduction to Programming', 5, 'Computer Science', 'A first course in programming for students with no prior experience.'),
+(102, 'Principles of Microeconomics', 5, 'Business Administration', 'An introduction to the behavior of individual economic agents.'),
+(103, 'Introduction to Psychology', 5, 'Psychology', 'A survey of the major areas of psychology.'),
+(104, 'Calculus I', 5, 'Mathematics', 'An introduction to differential calculus.'),
+(201, 'Data Structures and Algorithms', 5, 'Computer Science', 'A second course in programming focusing on data structures and algorithms.'),
+(202, 'Financial Accounting', 5, 'Business Administration', 'An introduction to the principles and practices of financial accounting.'),
+(203, 'Social Psychology', 5, 'Psychology', 'The study of how individuals perceive, influence, and relate to others.'),
+(204, 'Statics', 5, 'Mechanical Engineering', 'The study of forces on and in structures that are in equilibrium.'),
+(301, 'Database Systems', 5, 'Computer Science', 'An introduction to the design and implementation of database systems.'),
+(302, 'Marketing Management', 5, 'Business Administration', 'An overview of marketing principles and practices.'),
+(303, 'Abnormal Psychology', 5, 'Psychology', 'The study of unusual patterns of behavior, emotion and thought.'),
+(304, 'Thermodynamics', 5, 'Mechanical Engineering', 'The study of the relations between heat, work, temperature, and energy.'),
+(401, 'Operating Systems', 5, 'Computer Science', 'An introduction to the principles of operating systems.'),
+(402, 'Corporate Finance', 5, 'Business Administration', 'An introduction to the principles of corporate finance.'),
+(403, 'Cognitive Psychology', 5, 'Psychology', 'The study of mental processes such as attention, language use, memory, perception, problem solving, creativity, and thinking.'),
+(404, 'Fluid Mechanics', 5, 'Mechanical Engineering', 'The study of fluids (liquids, gases, and plasmas) and the forces on them.'),
+(110, 'Introduction to Biology', 5, 'Biology', 'A foundational course in the study of life and living organisms.'),
+(120, 'General Chemistry I', 5, 'Chemistry', 'First part of a two-semester sequence covering fundamental principles of chemistry.'),
+(130, 'Introduction to Cybersecurity', 5, 'Cybersecurity', 'An overview of the cybersecurity landscape.'),
+(140, 'Introduction to Nursing', 5, 'Nursing', 'Provides a foundation for the practice of nursing.');
+
+-- Inserting data into Section Table
 INSERT INTO Section (CourseCode, SectionLetter, MaxEnrolled, EnrolledStudents, RoomNum, Instructor, MeetingDay, StartTime, EndTime) VALUES
-(101, 'A', 30, 25, 'UW1-101', 1001, 'MWF', '09:00:00', '09:50:00'),
-(102, 'B', 35, 30, 'UW1-102', 1009, 'TTh', '10:00:00', '11:15:00'),
-(103, 'C', 30, 28, 'UW2-201', 1002, 'MWF', '11:00:00', '11:50:00'),
-(104, 'D', 40, 33, 'UW2-202', 1010, 'TTh', '12:00:00', '13:15:00'),
-(105, 'E', 25, 20, 'UW1-210', 1003, 'MWF', '13:00:00', '13:50:00'),
-(106, 'F', 30, 26, 'UW2-305', 1006, 'TTh', '14:00:00', '15:15:00'),
-(107, 'G', 35, 32, 'UW1-110', 1001, 'MWF', '09:30:00', '10:20:00'),
-(108, 'H', 40, 37, 'UW2-211', 1002, 'TTh', '10:30:00', '11:45:00'),
-(109, 'I', 20, 18, 'UW1-220', 1003, 'MWF', '12:00:00', '12:50:00'),
-(110, 'J', 25, 24, 'UW2-310', 1004, 'TTh', '13:00:00', '14:15:00'),
-(111, 'K', 30, 27, 'UW1-120', 1017, 'MWF', '14:00:00', '14:50:00'),
-(112, 'L', 35, 31, 'UW2-221', 1018, 'TTh', '15:00:00', '16:15:00'),
-(113, 'M', 40, 38, 'UW1-230', 1019, 'MWF', '09:00:00', '09:50:00'),
-(114, 'N', 25, 22, 'UW2-320', 1020, 'TTh', '10:00:00', '11:15:00'),
-(115, 'O', 30, 30, 'UW1-130', 1001, 'MWF', '11:00:00', '11:50:00'),
-(116, 'P', 35, 33, 'UW2-231', 1010, 'TTh', '12:00:00', '13:15:00'),
-(117, 'Q', 40, 39, 'UW1-240', 1011, 'MWF', '13:00:00', '13:50:00'),
-(118, 'R', 25, 24, 'UW2-330', 1012, 'TTh', '14:00:00', '15:15:00'),
-(119, 'S', 30, 29, 'BB-110', 1005, 'MWF', '15:00:00', '15:50:00'),
-(120, 'T', 35, 34, 'BB-120', 1007, 'TTh', '16:00:00', '17:15:00');
-
--- -- =========================
--- -- Section Times INSERT
--- -- =========================
--- INSERT INTO DegreeProgram (DegreeName, DegreeType, SchoolDivision, EnrolledStudentsMax, Description) VALUES
--- ('Computer Science BS', 'Major', 'STEM', 400, 'Study of computation and programming.'),
--- ('Computer Science Minor', 'Minor', 'STEM', 120, 'Foundational CS concepts.'),
--- ('Mathematics BA', 'Major', 'STEM', 300, 'Mathematical theory and applications.'),
--- ('Mathematics Minor', 'Minor', 'STEM', 150, 'Introductory math courses.'),
--- ('Biology BS', 'Major', 'Science', 350, 'Life sciences and lab work.'),
--- ('Biology Minor', 'Minor', 'Science', 150, 'Biology fundamentals.'),
--- ('Chemistry BS', 'Major', 'Science', 280, 'Chemical theory and practice.'),
--- ('Chemistry Minor', 'Minor', 'Science', 130, 'Introductory chemistry focus.'),
--- ('Economics BA', 'Major', 'Social Science', 320, 'Micro and macro economics.'),
--- ('Economics Minor', 'Minor', 'Social Science', 120, 'Economics foundation courses.'),
--- ('Business Administration BS', 'Major', 'Business', 500, 'Management principles.'),
--- ('Business Minor', 'Minor', 'Business', 200, 'Introduction to business concepts.'),
--- ('Accounting BS', 'Major', 'Business', 300, 'Financial reporting and auditing.'),
--- ('Finance BS', 'Major', 'Business', 320, 'Financial markets and analysis.'),
--- ('Marketing BA', 'Major', 'Business', 280, 'Marketing and consumer behavior.'),
--- ('Physics BS', 'Major', 'STEM', 200, 'Classical and modern physics.'),
--- ('English BA', 'Major', 'Humanities', 250, 'Literature and writing.'),
--- ('Psychology BA', 'Major', 'Social Science', 350, 'Human behavior and cognition.'),
--- ('History BA', 'Major', 'Humanities', 200, 'Historical events and analysis.'),
--- ('Philosophy BA', 'Major', 'Humanities', 180, 'Logic and ethical reasoning.');
+(101, 'A', 50, 45, 'UW1-101', 1, 'MWF', '09:30:00', '10:20:00'),
+(101, 'B', 50, 48, 'UW1-102', 9, 'TTh', '11:00:00', '12:20:00'),
+(102, 'C', 40, 35, 'UW2-201', 2, 'MWF', '10:30:00', '11:20:00'),
+(102, 'Z', 40, 38, 'UW2-202', 10, 'TTh', '13:30:00', '14:50:00'),
+(103, 'D', 60, 55, 'UW1-210', 3, 'MWF', '11:30:00', '12:20:00'),
+(104, 'E', 30, 28, 'UW2-305', 6, 'TTh', '09:00:00', '10:20:00'),
+(201, 'F', 45, 42, 'UW1-110', 1, 'MWF', '13:30:00', '14:20:00'),
+(202, 'G', 35, 33, 'UW2-211', 2, 'TTh', '15:00:00', '16:20:00'),
+(203, 'H', 55, 50, 'UW1-220', 3, 'MWF', '14:30:00', '15:20:00'),
+(204, 'I', 25, 23, 'UW2-310', 4, 'TTh', '11:00:00', '12:20:00'),
+(301, 'J', 40, 39, 'UW1-120', 17, 'MWF', '08:30:00', '09:20:00'),
+(302, 'K', 30, 29, 'UW2-221', 18, 'TTh', '09:30:00', '10:50:00'),
+(303, 'L', 50, 47, 'UW1-230', 19, 'MWF', '12:30:00', '13:20:00'),
+(304, 'M', 20, 18, 'UW2-320', 20, 'TTh', '14:00:00', '15:20:00'),
+(401, 'N', 35, 35, 'UW1-130', 1, 'MWF', '10:30:00', '11:20:00'),
+(402, 'O', 28, 25, 'UW2-231', 10, 'TTh', '11:30:00', '12:50:00'),
+(403, 'P', 48, 45, 'UW1-240', 11, 'MWF', '15:30:00', '16:20:00'),
+(404, 'Q', 22, 20, 'UW2-330', 12, 'TTh', '16:00:00', '17:20:00'),
+(110, 'R', 60, 58, 'BB-110', 5, 'MWF', '09:00:00', '10:20:00'),
+(120, 'S', 60, 59, 'BB-120', 7, 'TTh', '10:00:00', '11:20:00');
