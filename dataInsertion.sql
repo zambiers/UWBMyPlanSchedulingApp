@@ -1,6 +1,31 @@
 -- =========================
 -- Students INSERT
 -- =========================
+
+-- ALTER TABLE Section
+-- DROP FOREIGN KEY section_ibfk_1,
+-- ADD CONSTRAINT section_ibfk_1
+--     FOREIGN KEY (CourseCode)
+--     REFERENCES Courses(CourseCode)
+--     ON DELETE CASCADE;
+
+-- ALTER TABLE SectionTime
+-- DROP FOREIGN KEY sectiontime_ibfk_1,
+-- ADD CONSTRAINT sectiontime_ibfk_1
+--     FOREIGN KEY (CourseCode, SectionLetter)
+--     REFERENCES Section(CourseCode, SectionLetter)
+--     ON DELETE CASCADE;
+
+
+-- DELETE FROM Courses;
+
+-- SET FOREIGN_KEY_CHECKS = 0;
+-- TRUNCATE TABLE Section;
+-- TRUNCATE TABLE SectionTime;
+-- TRUNCATE TABLE Courses;
+-- SET FOREIGN_KEY_CHECKS = 1;
+
+
 -- INSERT INTO Students VALUES
 -- (1, 'Alice', 'Smith', 'Computer Science', 'alice1@uw.edu'),
 -- (2, 'Bob', 'Johnson', 'Electrical Engineering', 'bob2@uw.edu'),
