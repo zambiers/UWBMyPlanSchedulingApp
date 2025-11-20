@@ -13,9 +13,9 @@ CREATE TABLE Students (
     Email VARCHAR(100) UNIQUE NOT NULL
 );
 CREATE TABLE Courses (
-    CourseCode INT PRIMARY KEY,
+    CourseCode VARCHAR(12) PRIMARY KEY,
     CourseName VARCHAR(100) NOT NULL,
-    Credits INT NOT NULL CHECK (Credits > 0),
+    Credits INT NOT NULL,
     Major VARCHAR(100) NOT NULL,
     Description TEXT
 );
@@ -23,22 +23,23 @@ CREATE TABLE Professors (
     EmployeeID INT PRIMARY KEY,
     FirstName VARCHAR(50) NOT NULL,
     LastName VARCHAR(50) NOT NULL,
-    Email VARCHAR(100) UNIQUE NOT NULL,
+    Email VARCHAR(100),
     MajorOfInstruction VARCHAR(100) NOT NULL
 );
 CREATE TABLE Section (
-    CourseCode INT NOT NULL,
+    SectionID INTEGER PRIMARY KEY AUTOINCREMENT,
+    CourseCode VARCHAR(12) NOT NULL,
     SectionLetter CHAR(1) NOT NULL DEFAULT 'A',
     MaxEnrolled INT NOT NULL,
     EnrolledStudents INT DEFAULT 0,
-    RoomNum VARCHAR(10) NOT NULL,
-    Instructor INT NOT NULL,
-    MeetingDay VARCHAR(10) NOT NULL,
-    StartTime TIME NOT NULL,
-    EndTime TIME NOT NULL,
-    PRIMARY KEY (SectionLetter),
+    RoomNum VARCHAR(20),
+    Instructor INT,
+    MeetingDay VARCHAR(30),
+    StartTime TIME,
+    EndTime TIME,
     FOREIGN KEY (CourseCode) REFERENCES Courses(CourseCode),
-    FOREIGN KEY (Instructor) REFERENCES Professors(EmployeeID)
+    FOREIGN KEY (Instructor) REFERENCES Professors(EmployeeID),
+    UNIQUE (CourseCode, SectionLetter, StartTime, MeetingDay)
 );
 CREATE TABLE DegreeProgram (
     DegreeName VARCHAR(70) PRIMARY KEY NOT NULL,
