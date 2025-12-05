@@ -23,7 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 *.csv
-reportWebVitals.json
 setupTests.js
-reportWebVitals.js
 node_modules/
