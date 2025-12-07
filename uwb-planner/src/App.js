@@ -8,7 +8,7 @@ import professors from './pages/professors.jsx';
 import courses from './pages/courses.jsx';
 import programs from './pages/programs.jsx';
 import sections from './pages/section.jsx';
-import home from './pages/home.jsx';
+import home from './pages/overview.jsx';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<home />} />
           <Route path="/studs" element={<students />} />
-          <Route path="/prof" element={<professors />} />
+          <Route path="/profs" element={<professors />} />
           <Route path="/courses" element={<courses />} />
           <Route path="/programs" element={<programs />} />
           <Route path="/sections" element={<sections />} />
