@@ -13,6 +13,7 @@ manually load in all data from inside sqlite3 shell:
 .read courseScheduler.session.sql
 .read dataInsertion.sql
 .tables (currently 5 tables, we need at least one for for the Student to Course index)
+.read sampleQueries.sql
 SELECT COUNT(*) FROM Courses;
 SELECT CourseCode, CourseName FROM Courses LIMIT 5;
 SELECT * FROM Section LIMIT 5;
