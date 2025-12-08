@@ -1,3 +1,11 @@
+DROP TABLE IF EXISTS StudentSection;                                                                                                                                                                    
+DROP TABLE IF EXISTS StudentDegreeProgram;                                                                                                                                                              
+DROP TABLE IF EXISTS Section;                                                                                                                                                                           
+DROP TABLE IF EXISTS DegreeProgram;                                                                                                                                                                     
+DROP TABLE IF EXISTS Professors;                                                                                                                                                                        
+DROP TABLE IF EXISTS Courses;                                                                                                                                                                           
+DROP TABLE IF EXISTS Students;                                                                                                                                                                          
+
 -- ============================================================
 -- UWB MyPlan Scheduling App - Master PostgreSQL/Supabase Setup
 -- ============================================================
@@ -37,21 +45,19 @@ CREATE TABLE Professors (
     MajorOfInstruction VARCHAR(100) NOT NULL
 );
 
--- Section Table
 CREATE TABLE Section (
-    SectionID SERIAL PRIMARY KEY,
     CourseCode VARCHAR(12) NOT NULL,
     SectionLetter CHAR(1) NOT NULL DEFAULT 'A',
     MaxEnrolled INT NOT NULL,
     EnrolledStudents INT DEFAULT 0,
     RoomNum VARCHAR(20),
     Instructor INT,
-    MeetingDay VARCHAR(30),
-    StartTime TIME,
+    MeetingDay VARCHAR(30) NOT NULL,
+    StartTime TIME NOT NULL,
     EndTime TIME,
+    PRIMARY KEY (CourseCode, SectionLetter, MeetingDay, StartTime),
     FOREIGN KEY (CourseCode) REFERENCES Courses(CourseCode),
-    FOREIGN KEY (Instructor) REFERENCES Professors(EmployeeID),
-    UNIQUE (CourseCode, SectionLetter, StartTime, MeetingDay)
+    FOREIGN KEY (Instructor) REFERENCES Professors(EmployeeID)
 );
 
 -- DegreeProgram Table
@@ -73,11 +79,14 @@ CREATE TABLE DegreeProgram (
 --SudentCourses
 CREATE TABLE StudentSection(
     StudentID INT,
-    SectionID INT,
-    PRIMARY KEY (StudentID, SectionID),
+    CourseCode VARCHAR(12),
+    SectionLetter CHAR(1) DEFAULT 'A',
+    MeetingDay VARCHAR(30),
+    StartTime TIME,
+    Grade VARCHAR(2),
+    PRIMARY KEY (StudentID, CourseCode, SectionLetter, MeetingDay, StartTime),
     FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
-    FOREIGN KEY (SectionID) REFERENCES Section(SectionID),
-    Grade VARCHAR(2)
+    FOREIGN KEY (CourseCode, SectionLetter, MeetingDay, StartTime) REFERENCES Section(CourseCode, SectionLetter, MeetingDay, StartTime)
 );
 
 --StudentDegreeProgram

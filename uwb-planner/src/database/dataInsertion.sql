@@ -715,9 +715,9 @@ VALUES
 ('B BIO 495', 'A', 12, 0, 'INV-223', 6, 'Monday Wednesday', '08:45:00', '10:45:00'),
 ('B BIO 495', 'B', 12, 0, 'INV-223', 8, 'Tuesday Thursday', '13:15:00', '15:15:00'),
 ('B BIO 495', 'C', 12, 0, 'INV-223', 11, 'Tuesday Thursday', '11:00:00', '13:00:00'),
-('B BIO 498', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B BIO 498', 'B', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B BIO 499', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
+('B BIO 498', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B BIO 498', 'B', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B BIO 499', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('CSS 101', 'A', 24, 0, 'DISC-252', 12, 'Tuesday Thursday', '15:30:00', '17:30:00'),
 ('CSS 107', 'A', 48, 0, 'UW1-202', 13, 'Tuesday Thursday', '17:45:00', '19:45:00'),
 ('CSS 107', 'B', 48, 0, 'UW1-020', 13, 'Monday Wednesday', '20:00:00', '22:00:00'),
@@ -734,10 +734,10 @@ VALUES
 ('CSS 143', 'C', 48, 0, 'UW1-110', 19, 'Tuesday Thursday', '17:45:00', '19:45:00'),
 ('CSS 143', 'D', 48, 0, 'UW1-050', 20, 'Monday Wednesday', '13:15:00', '15:15:00'),
 ('CSS 173', 'A', 48, 0, 'UW1-010', NULL, 'Tuesday Thursday', '15:30:00', '17:30:00'),
-('CSS 198', 'A', 40, 0, NULL, NULL, NULL, NULL, NULL),
-('CSS 198', 'B', 40, 0, NULL, NULL, NULL, NULL, NULL),
-('CSS 199', 'A', 40, 0, NULL, NULL, NULL, NULL, NULL),
-('CSS 199', 'B', 40, 0, NULL, NULL, NULL, NULL, NULL),
+('CSS 198', 'A', 40, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('CSS 198', 'B', 40, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('CSS 199', 'A', 40, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('CSS 199', 'B', 40, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('CSS 211', 'A', 48, 0, 'UW2-031', 21, 'Tuesday Thursday', '15:30:00', '17:30:00'),
 ('CSS 211', 'B', 48, 0, 'UW1-221', 22, 'Monday Wednesday', '11:00:00', '13:00:00'),
 ('CSS 290', 'A', 48, 0, 'UW2-131', NULL, 'Tuesday Thursday', '15:30:00', '17:30:00'),
@@ -769,7 +769,7 @@ VALUES
 ('CSS 370', 'B', 48, 0, 'UW2-031', 17, 'Tuesday Thursday', '11:00:00', '13:00:00'),
 ('CSS 371', 'A', 48, 0, 'UW1-040', 39, 'Monday Wednesday', '15:30:00', '17:30:00'),
 ('CSS 382', 'A', 48, 0, 'UW1-040', 35, 'Monday Wednesday', '08:45:00', '10:45:00'),
-('CSS 397', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
+('CSS 397', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('CSS 415', 'A', 48, 0, 'UW2-031', 40, 'Tuesday', '17:45:00', '19:45:00'),
 ('CSS 421', 'A', 48, 0, 'UW2-005', 37, 'Monday Wednesday', '11:00:00', '13:00:00'),
 ('CSS 422', 'A', 48, 0, 'UW2-240', 41, 'Monday Wednesday', '13:15:00', '15:15:00'),
@@ -789,20 +789,20 @@ VALUES
 ('CSS 485', 'A', 48, 0, 'UW1-030', 48, 'Monday Wednesday', '20:00:00', '22:00:00'),
 ('CSS 490', 'A', 48, 0, 'UW1-051', 49, 'Friday', '11:00:00', '13:00:00'),
 ('CSS 490', 'B', 48, 0, 'UW1-040', 39, 'Monday Wednesday', '13:15:00', '15:15:00'),
-('CSS 495', 'A', 20, 0, NULL, NULL, NULL, NULL, NULL),
+('CSS 495', 'A', 20, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('CSS 496', 'A', 20, 0, 'UW1-030', 24, 'Tuesday Thursday', '20:00:00', '22:00:00'),
-('CSS 497', 'A', 40, 0, NULL, 37, NULL, NULL, NULL),
-('CSS 497', 'B', 40, 0, NULL, 37, NULL, NULL, NULL),
+('CSS 497', 'A', 40, 0, NULL, 37, 'TBD', '00:00:00', NULL),
+('CSS 497', 'B', 40, 0, NULL, 37, 'TBD', '00:00:00', NULL),
 ('CSS 497', 'C', 20, 0, 'UW1-221', 37, 'Tuesday Thursday', '11:00:00', '13:00:00'),
 ('CSS 497', 'D', 20, 0, 'UW2-340', 50, 'Monday Wednesday', '11:00:00', '13:00:00'),
 ('CSS 497', 'E', 20, 0, 'LBA-003', 50, 'Tuesday Thursday', '15:30:00', '17:30:00'),
-('CSS 498', 'A', 40, 0, NULL, NULL, NULL, NULL, NULL),
-('CSS 498', 'B', 40, 0, NULL, NULL, NULL, NULL, NULL),
-('CSS 499', 'A', 40, 0, NULL, NULL, NULL, NULL, NULL),
-('CSS 499', 'B', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('CSS 502', 'A', 90, 0, NULL, 51, NULL, NULL, NULL),
+('CSS 498', 'A', 40, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('CSS 498', 'B', 40, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('CSS 499', 'A', 40, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('CSS 499', 'B', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('CSS 502', 'A', 90, 0, NULL, 51, 'TBD', '00:00:00', NULL),
 ('CSS 507', 'A', 45, 0, 'UW1-110', 52, 'Wednesday', '19:00:00', '21:00:00'),
-('CSS 507', 'B', 60, 0, NULL, 37, NULL, NULL, NULL),
+('CSS 507', 'B', 60, 0, NULL, 37, 'TBD', '00:00:00', NULL),
 ('CSS 518', 'A', 40, 0, 'UW2-305', 53, 'Tuesday', '20:00:00', '22:00:00'),
 ('CSS 535', 'A', 40, 0, 'UW1-021', 54, 'Tuesday Thursday', '17:45:00', '19:45:00'),
 ('CSS 537', 'A', 40, 0, 'UW2-305', 26, 'Tuesday', '17:45:00', '19:45:00'),
@@ -813,12 +813,12 @@ VALUES
 ('CSS 579', 'A', 40, 0, 'UW2-305', 57, 'Monday Wednesday', '17:45:00', '19:45:00'),
 ('CSS 581', 'A', 40, 0, 'UW2-131', 35, 'Monday Wednesday', '15:30:00', '17:30:00'),
 ('CSS 590', 'A', 40, 0, 'UW1-021', 54, 'Tuesday Thursday', '20:00:00', '22:00:00'),
-('CSS 595', 'A', 30, 0, NULL, NULL, NULL, NULL, NULL),
+('CSS 595', 'A', 30, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('CSS 599', 'A', 60, 0, 'UW1-041', 58, 'Tuesday', '20:00:00', '21:00:00'),
-('CSS 600', 'A', 20, 0, NULL, NULL, NULL, NULL, NULL),
-('CSS 600', 'B', 20, 0, NULL, NULL, NULL, NULL, NULL),
-('CSS 601', 'A', 20, 0, NULL, NULL, NULL, NULL, NULL),
-('CSS 700', 'A', 30, 0, NULL, NULL, NULL, NULL, NULL),
+('CSS 600', 'A', 20, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('CSS 600', 'B', 20, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('CSS 601', 'A', 20, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('CSS 700', 'A', 30, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('CSSSKL 123', 'A', 48, 0, 'UW1-010', 15, 'Friday', '08:45:00', '10:45:00'),
 ('CSSSKL 133', 'A', 30, 0, 'UW1-040', NULL, 'Friday', '11:30:00', '14:00:00'),
 ('CSSSKL 142', 'A', 48, 0, 'UW1-110', NULL, 'Friday', '08:45:00', '11:15:00'),
@@ -848,12 +848,12 @@ VALUES
 ('B EE 425', 'A', 24, 0, 'DISC-270', 62, 'Thursday', '11:00:00', '13:00:00'),
 ('B EE 450', 'A', 24, 0, 'UW2-040', 65, 'Tuesday Thursday', '13:15:00', '15:15:00'),
 ('B EE 454', 'A', 18, 0, 'UW1-031', 63, 'Monday Wednesday', '11:00:00', '13:00:00'),
-('B EE 498', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B EE 498', 'B', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B EE 498', 'C', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B EE 499', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B EE 499', 'B', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B EE 499', 'C', 10, 0, NULL, NULL, NULL, NULL, NULL),
+('B EE 498', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B EE 498', 'B', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B EE 498', 'C', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B EE 499', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B EE 499', 'B', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B EE 499', 'C', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('B EE 504', 'A', 30, 0, 'UW1-060', NULL, 'Monday Wednesday', '17:45:00', '19:15:00'),
 ('B EE 506', 'A', 30, 0, 'UW1-060', NULL, 'Monday Wednesday', '19:30:00', '21:00:00'),
 ('B EE 510', 'A', 30, 0, 'UW2-040', 66, 'Monday Wednesday', '17:45:00', '19:45:00'),
@@ -862,20 +862,20 @@ VALUES
 ('B EE 546', 'B', 10, 0, 'UW1-031', 67, 'Monday Wednesday', '17:45:00', '19:45:00'),
 ('B EE 557', 'A', 24, 0, 'UW2-040', 65, 'Tuesday Thursday', '17:45:00', '19:45:00'),
 ('B EE 599', 'A', 30, 0, 'UW2-221', 65, 'Tuesday', '16:30:00', '17:30:00'),
-('B EE 600', 'A', 15, 0, NULL, NULL, NULL, NULL, NULL),
-('B EE 600', 'B', 15, 0, NULL, NULL, NULL, NULL, NULL),
-('B EE 601', 'A', 15, 0, NULL, NULL, NULL, NULL, NULL),
-('B EE 700', 'A', 30, 0, NULL, NULL, NULL, NULL, NULL),
+('B EE 600', 'A', 15, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B EE 600', 'B', 15, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B EE 601', 'A', 15, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B EE 700', 'A', 30, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('B ENGR 321', 'A', 12, 0, 'INV-012', 68, 'Tuesday', '15:30:00', '17:30:00'),
 ('B ENGR 494', 'A', 48, 0, 'INV-134', 69, 'Friday', '08:30:00', '11:00:00'),
-('B ENGR 495', 'A', 20, 0, NULL, NULL, NULL, NULL, NULL),
-('B ENGR 495', 'B', 20, 0, NULL, NULL, NULL, NULL, NULL),
-('B ENGR 495', 'C', 20, 0, NULL, NULL, NULL, NULL, NULL),
-('B ENGR 495', 'D', 20, 0, NULL, NULL, NULL, NULL, NULL),
-('B ENGR 495', 'E', 20, 0, NULL, NULL, NULL, NULL, NULL),
-('B ENGR 495', 'F', 20, 0, NULL, NULL, NULL, NULL, NULL),
-('B ENGR 495', 'G', 20, 0, NULL, NULL, NULL, NULL, NULL),
-('B ENGR 495', 'H', 20, 0, NULL, NULL, NULL, NULL, NULL),
+('B ENGR 495', 'A', 20, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B ENGR 495', 'B', 20, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B ENGR 495', 'C', 20, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B ENGR 495', 'D', 20, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B ENGR 495', 'E', 20, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B ENGR 495', 'F', 20, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B ENGR 495', 'G', 20, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B ENGR 495', 'H', 20, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('B MATH 121', 'A', 28, 0, 'UW2-205', 70, 'Thursday', '11:00:00', '13:00:00'),
 ('B MATH 122', 'A', 32, 0, 'UW2-340', 70, 'Tuesday Thursday', '08:45:00', '10:05:00'),
 ('B MATH 123', 'A', 36, 0, 'UW2-240', 71, 'Monday Wednesday Friday', '08:45:00', '10:05:00'),
@@ -898,10 +898,10 @@ VALUES
 ('B ME 410', 'A', 18, 0, 'INV-221', 76, 'Thursday', '11:00:00', '13:00:00'),
 ('B ME 433', 'A', 24, 0, 'UW2-105', 77, 'Monday Wednesday', '11:00:00', '13:00:00'),
 ('B ME 460', 'A', 24, 0, 'INV-221', 73, 'Monday Wednesday', '11:00:00', '13:00:00'),
-('B ME 498', 'B', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B ME 498', 'C', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B ME 499', 'C', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B ME 499', 'D', 10, 0, NULL, NULL, NULL, NULL, NULL),
+('B ME 498', 'B', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B ME 498', 'C', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B ME 499', 'C', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B ME 499', 'D', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('STMATH 113', 'A', 38, 0, 'UW1-020', 78, 'Tuesday Thursday Friday', '08:45:00', '10:05:00'),
 ('STMATH 114', 'A', 38, 0, 'UW1-020', 78, 'Tuesday Thursday Friday', '10:15:00', '11:35:00'),
 ('STMATH 114', 'B', 38, 0, 'UW1-020', 78, 'Tuesday Thursday Friday', '11:45:00', '13:05:00'),
@@ -935,10 +935,10 @@ VALUES
 ('STMATH 406', 'A', 24, 0, 'DISC-258', 92, 'Monday Wednesday', '08:45:00', '10:45:00'),
 ('STMATH 424', 'A', 24, 0, 'UW2-205', 93, 'Monday Wednesday', '11:00:00', '13:00:00'),
 ('STMATH 427', 'A', 24, 0, 'UW2-305', 88, 'Tuesday Thursday', '11:00:00', '13:00:00'),
-('STMATH 498', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('STMATH 498', 'B', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('STMATH 499', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('STMATH 499', 'B', 10, 0, NULL, NULL, NULL, NULL, NULL),
+('STMATH 498', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('STMATH 498', 'B', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('STMATH 499', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('STMATH 499', 'B', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('B CHEM 143', 'A', 144, 0, 'DISC-061', 94, 'Monday Wednesday Friday', '10:15:00', '11:35:00'),
 ('B CHEM 144', 'A', 24, 0, 'CC1-340', 95, 'Monday', '12:00:00', '15:00:00'),
 ('B CHEM 144', 'B', 24, 0, 'CC1-340', 96, 'Tuesday', '08:30:00', '11:30:00'),
@@ -972,13 +972,13 @@ VALUES
 ('B CHEM 426', 'A', 24, 0, 'UWBB-260', 101, 'Tuesday Thursday', '13:15:00', '15:15:00'),
 ('B CHEM 426', 'A', 12, 0, 'DISC-469', 101, 'Wednesday', '08:45:00', '12:45:00'),
 ('B CHEM 426', 'A', 12, 0, 'DISC-469', 101, 'Wednesday', '13:15:00', '17:15:00'),
-('B CHEM 498', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B CHEM 498', 'C', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B CHEM 499', 'B', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B PHYS 114', 'A', 144, 0, NULL, NULL, NULL, NULL, NULL),
+('B CHEM 498', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B CHEM 498', 'C', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B CHEM 499', 'B', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B PHYS 114', 'A', 144, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('B PHYS 114', 'A', 72, 0, 'DISC-162', NULL, 'Tuesday', '13:15:00', '15:15:00'),
 ('B PHYS 114', 'A', 72, 0, 'DISC-162', NULL, 'Wednesday', '08:45:00', '10:45:00'),
-('B PHYS 115', 'A', 144, 0, NULL, 102, NULL, NULL, NULL),
+('B PHYS 115', 'A', 144, 0, NULL, 102, 'TBD', '00:00:00', NULL),
 ('B PHYS 115', 'A', 72, 0, 'DISC-162', 102, 'Tuesday', '11:00:00', '13:00:00'),
 ('B PHYS 115', 'A', 72, 0, 'DISC-162', 102, 'Thursday', '11:00:00', '13:00:00'),
 ('B PHYS 117', 'A', 24, 0, 'DISC-368', 103, 'Thursday', '15:30:00', '17:30:00'),
@@ -990,13 +990,13 @@ VALUES
 ('B PHYS 118', 'D', 24, 0, 'INV-312', NULL, 'Wednesday', '11:00:00', '13:00:00'),
 ('B PHYS 118', 'E', 24, 0, 'INV-312', NULL, 'Thursday', '13:15:00', '15:15:00'),
 ('B PHYS 118', 'F', 24, 0, 'INV-312', NULL, 'Thursday', '15:30:00', '17:30:00'),
-('B PHYS 121', 'A', 144, 0, NULL, 104, NULL, NULL, NULL),
+('B PHYS 121', 'A', 144, 0, NULL, 104, 'TBD', '00:00:00', NULL),
 ('B PHYS 121', 'A', 72, 0, 'DISC-162', 104, 'Thursday', '13:15:00', '15:15:00'),
 ('B PHYS 121', 'A', 72, 0, 'DISC-162', 104, 'Wednesday', '13:15:00', '15:15:00'),
 ('B PHYS 121', 'A', 24, 0, 'DISC-368', 104, 'Tuesday', '15:30:00', '17:30:00'),
 ('B PHYS 121', 'A', 24, 0, 'DISC-368', 104, 'Wednesday', '15:30:00', '17:30:00'),
 ('B PHYS 121', 'A', 24, 0, 'DISC-368', 104, 'Tuesday', '13:15:00', '15:15:00'),
-('B PHYS 122', 'A', 144, 0, NULL, 105, NULL, NULL, NULL),
+('B PHYS 122', 'A', 144, 0, NULL, 105, 'TBD', '00:00:00', NULL),
 ('B PHYS 122', 'A', 72, 0, 'DISC-162', 105, 'Friday', '11:00:00', '13:00:00'),
 ('B PHYS 122', 'A', 72, 0, 'DISC-162', 105, 'Friday', '13:15:00', '15:15:00'),
 ('B PHYS 122', 'A', 24, 0, 'INV-312', 105, 'Tuesday', '08:45:00', '10:45:00'),
@@ -1013,19 +1013,19 @@ VALUES
 ('B PHYS 324', 'A', 24, 0, 'UW2-040', 108, 'Monday Wednesday', '15:30:00', '17:30:00'),
 ('B PHYS 431', 'A', 24, 0, 'DISC-368', 109, 'Monday Wednesday', '10:00:00', '13:00:00'),
 ('B PHYS 450', 'A', 24, 0, 'UW2-105', 110, 'Tuesday Thursday', '15:30:00', '17:30:00'),
-('B PHYS 498', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B PHYS 498', 'B', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B PHYS 499', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B PHYS 499', 'B', 10, 0, NULL, NULL, NULL, NULL, NULL),
+('B PHYS 498', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B PHYS 498', 'B', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B PHYS 499', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B PHYS 499', 'B', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('BST 205', 'A', 30, 0, 'UW2-221', 43, 'Monday Wednesday', '08:45:00', '10:45:00'),
 ('BST 301', 'A', 24, 0, 'UW2-211', 111, 'Monday Wednesday', '13:15:00', '15:15:00'),
 ('BST 493', 'D', 30, 0, 'UW2-221', NULL, 'Monday Wednesday', '17:45:00', '19:45:00'),
-('BST 498', 'A', 30, 0, NULL, NULL, NULL, NULL, NULL),
-('BST 498', 'B', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('BST 498', 'C', 30, 0, NULL, NULL, NULL, NULL, NULL),
-('BST 499', 'A', 30, 0, NULL, NULL, NULL, NULL, NULL),
-('BST 499', 'B', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('BST 499', 'C', 10, 0, NULL, NULL, NULL, NULL, NULL),
+('BST 498', 'A', 30, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('BST 498', 'B', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('BST 498', 'C', 30, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('BST 499', 'A', 30, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('BST 499', 'B', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('BST 499', 'C', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('B ACCT 503', 'A', 40, 0, 'UWBB-270', 112, 'Thursday', '18:00:00', '21:30:00'),
 ('B ACCT 504', 'A', 40, 0, 'UWBB-230', 113, 'Tuesday', '18:00:00', '21:30:00'),
 ('B ACCT 510', 'A', 40, 0, 'UW1-021', 114, 'Tuesday', '15:30:00', '17:30:00'),
@@ -1113,7 +1113,7 @@ VALUES
 ('B BUS 487', 'A', 42, 0, 'UW1-210', NULL, 'Monday Wednesday', '17:45:00', '19:45:00'),
 ('B BUS 490', 'A', 42, 0, 'UWBB-240', 122, 'Monday Wednesday', '11:00:00', '13:00:00'),
 ('B BUS 490', 'B', 42, 0, 'UWBB-230', 132, 'Tuesday Thursday', '15:30:00', '17:30:00'),
-('B BUS 501', 'A', 40, 0, NULL, NULL, NULL, NULL, NULL),
+('B BUS 501', 'A', 40, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('B BUS 503', 'A', 40, 0, 'UWBB-240', 114, 'Monday', '18:00:00', '21:30:00'),
 ('B BUS 504', 'A', 40, 0, 'UWBB-230', 133, 'Wednesday', '18:00:00', '21:30:00'),
 ('B BUS 514', 'A', 40, 0, 'UWBB-230', NULL, 'Saturday', '09:00:00', '12:30:00'),
@@ -1121,13 +1121,13 @@ VALUES
 ('B BUS 528', 'A', 40, 0, 'UWBB-240', NULL, 'Wednesday', '18:00:00', '21:30:00'),
 ('B BUS 533', 'A', 40, 0, 'UW2-305', NULL, 'Thursday', '18:00:00', '21:30:00'),
 ('B BUS 534', 'A', 40, 0, 'UWBB-270', NULL, 'Tuesday', '18:00:00', '21:30:00'),
-('B BUS 600', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B BUS 601', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
+('B BUS 600', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B BUS 601', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('B BECN 302', 'A', 42, 0, 'UWBB-270', 134, 'Monday Wednesday', '11:00:00', '13:00:00'),
 ('B BECN 458', 'A', 16, 0, 'UWBB-260', 121, 'Monday Wednesday', '13:15:00', '15:15:00'),
 ('B EDUC 201', 'A', 60, 0, 'DISC-252', 135, 'Tuesday', '11:00:00', '13:00:00'),
 ('B EDUC 201', 'B', 60, 0, 'DISC-252', 136, 'Wednesday', '11:00:00', '13:00:00'),
-('B EDUC 205', 'A', 60, 0, NULL, 137, NULL, NULL, NULL),
+('B EDUC 205', 'A', 60, 0, NULL, 137, 'TBD', '00:00:00', NULL),
 ('B EDUC 205', 'B', 60, 0, 'DISC-252', 136, 'Monday', '11:00:00', '13:00:00'),
 ('B EDUC 210', 'A', 60, 0, NULL, 138, 'Wednesday', '17:45:00', '19:45:00'),
 ('B EDUC 230', 'A', 48, 0, 'UW1-020', 139, 'Tuesday', '17:45:00', '19:45:00'),
@@ -1139,14 +1139,14 @@ VALUES
 ('B EDUC 300', 'A', 24, 0, 'LB1-203', 144, 'Monday Wednesday', '11:00:00', '13:00:00'),
 ('B EDUC 310', 'A', 60, 0, 'LB1-203', 145, 'Wednesday', '08:45:00', '10:45:00'),
 ('B EDUC 340', 'A', 55, 0, 'LB1-203', 144, 'Friday', '12:00:00', '15:00:00'),
-('B EDUC 391', 'A', 15, 0, NULL, 146, NULL, NULL, NULL),
-('B EDUC 392', 'A', 5, 0, NULL, NULL, NULL, NULL, NULL),
-('B EDUC 392', 'B', 5, 0, NULL, NULL, NULL, NULL, NULL),
+('B EDUC 391', 'A', 15, 0, NULL, 146, 'TBD', '00:00:00', NULL),
+('B EDUC 392', 'A', 5, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B EDUC 392', 'B', 5, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('B EDUC 399', 'A', 20, 0, 'LBA-003', 143, 'Tuesday', '13:15:00', '15:15:00'),
 ('B EDUC 403', 'A', 48, 0, 'UW2-240', 146, 'Wednesday', '15:30:00', '16:30:00'),
 ('B EDUC 423', 'A', 55, 0, 'LB1-203', NULL, 'Friday', '08:45:00', '11:15:00'),
 ('B EDUC 425', 'A', 60, 0, NULL, 147, 'Tuesday', '17:15:00', '19:15:00'),
-('B EDUC 435', 'A', 60, 0, NULL, 147, NULL, NULL, NULL),
+('B EDUC 435', 'A', 60, 0, NULL, 147, 'TBD', '00:00:00', NULL),
 ('B EDUC 438', 'A', 48, 0, 'UW1-010', NULL, 'Monday', '17:45:00', '19:45:00'),
 ('B EDUC 441', 'A', 48, 0, 'LB1-203', NULL, 'Tuesday', '13:15:00', '16:15:00'),
 ('B EDUC 442', 'A', 40, 0, 'LB1-203', NULL, 'Thursday', '17:15:00', '20:15:00'),
@@ -1159,11 +1159,11 @@ VALUES
 ('B EDUC 501', 'A', 35, 0, NULL, 151, 'Tuesday', '17:30:00', '20:30:00'),
 ('B EDUC 542', 'A', 8, 0, 'LB1-203', NULL, 'Thursday', '17:15:00', '20:15:00'),
 ('B EDUC 550', 'A', 35, 0, 'UW1-202', 152, 'Wednesday', '17:45:00', '20:45:00'),
-('B EDUC 591', 'C', 20, 0, NULL, 146, NULL, NULL, NULL),
-('B EDUC 592', 'A', 5, 0, NULL, NULL, NULL, NULL, NULL),
-('B EDUC 592', 'B', 5, 0, NULL, NULL, NULL, NULL, NULL),
-('LEDE 510', 'A', 12, 0, NULL, NULL, NULL, NULL, NULL),
-('LEDE 540', 'A', 12, 0, NULL, NULL, NULL, NULL, NULL),
+('B EDUC 591', 'C', 20, 0, NULL, 146, 'TBD', '00:00:00', NULL),
+('B EDUC 592', 'A', 5, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B EDUC 592', 'B', 5, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('LEDE 510', 'A', 12, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('LEDE 540', 'A', 12, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('B CORE 115', 'A', 30, 0, 'UW1-060', 153, 'Monday', '15:30:00', '17:30:00'),
 ('B CORE 115', 'B', 15, 0, 'UW1-030', 154, 'Wednesday', '15:30:00', '17:30:00'),
 ('B CORE 115', 'C', 15, 0, 'UW1-030', 155, 'Wednesday', '11:00:00', '13:00:00'),
@@ -1184,7 +1184,7 @@ VALUES
 ('B CORE 233', 'A', 42, 0, 'UW1-102', 163, 'Wednesday', '17:45:00', '19:45:00'),
 ('B LEAD 104', 'A', 30, 0, 'UW2-221', 23, 'Friday', '11:00:00', '13:00:00'),
 ('B CUSP 100', 'A', 30, 0, 'UW2-205', 154, 'Friday', '13:15:00', '15:15:00'),
-('B CUSP 199', 'A', 5, 0, NULL, 164, NULL, NULL, NULL),
+('B CUSP 199', 'A', 5, 0, NULL, 164, 'TBD', '00:00:00', NULL),
 ('B WRIT 132', 'A', 20, 0, 'LBA-003', 165, 'Monday Wednesday', '11:00:00', '12:20:00'),
 ('B WRIT 132', 'B', 20, 0, 'UW1-060', 165, 'Monday Wednesday', '13:15:00', '14:35:00'),
 ('B WRIT 133', 'A', 20, 0, 'UW2-305', 166, 'Monday Wednesday', '08:45:00', '10:05:00'),
@@ -1214,10 +1214,10 @@ VALUES
 ('BISAES 465', 'A', 24, 0, 'UW1-060', 178, 'Tuesday', '11:00:00', '13:00:00'),
 ('BCWRIT 500', 'A', 24, 0, 'UW1-031', 179, 'Tuesday', '17:45:00', '22:00:00'),
 ('BCWRIT 510', 'A', 24, 0, 'UW1-031', 180, 'Thursday', '17:45:00', '22:00:00'),
-('BCWRIT 597', 'A', 5, 0, NULL, NULL, NULL, NULL, NULL),
-('BCWRIT 599', 'A', 24, 0, NULL, NULL, NULL, NULL, NULL),
-('BCWRIT 700', 'A', 24, 0, NULL, NULL, NULL, NULL, NULL),
-('BCWRIT 700', 'B', 24, 0, NULL, NULL, NULL, NULL, NULL),
+('BCWRIT 597', 'A', 5, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('BCWRIT 599', 'A', 24, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('BCWRIT 700', 'A', 24, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('BCWRIT 700', 'B', 24, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('BISCLA 201', 'A', 24, 0, 'UW2-040', 181, 'Thursday', '11:00:00', '13:00:00'),
 ('B DATA 200', 'A', 36, 0, 'UW1-120', 182, 'Wednesday', '11:00:00', '13:00:00'),
 ('B DATA 200', 'B', 36, 0, 'UW1-120', 183, 'Thursday', '11:00:00', '13:00:00'),
@@ -1236,9 +1236,9 @@ VALUES
 ('BES 312', 'A', 24, 0, 'SSGC-101', 191, 'Monday Wednesday', '15:30:00', '17:30:00'),
 ('BES 312', 'B', 24, 0, 'SSGC-101', 190, 'Tuesday Thursday', '13:15:00', '15:15:00'),
 ('BES 385', 'A', 48, 0, 'UW1-020', 192, 'Monday Wednesday', '11:00:00', '13:00:00'),
-('BES 398', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
+('BES 398', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('BES 493', 'A', 24, 0, 'SSGC-101', 193, 'Friday', '13:15:00', '17:30:00'),
-('BES 498', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
+('BES 498', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('BISGWS 302', 'A', 48, 0, 'UW1-202', 194, 'Monday Wednesday', '15:30:00', '17:30:00'),
 ('BISGST 324', 'A', 48, 0, 'UW1-202', 118, 'Thursday', '11:00:00', '13:00:00'),
 ('BISIA 207', 'A', 24, 0, 'UW2-040', 195, 'Tuesday', '15:30:00', '17:30:00'),
@@ -1252,7 +1252,7 @@ VALUES
 ('BISIA 340', 'A', 24, 0, 'DISC-363', 202, 'Tuesday Thursday', '13:15:00', '15:15:00'),
 ('BISIA 344', 'A', 24, 0, 'UW2-121', 198, 'Tuesday', '11:00:00', '13:00:00'),
 ('BISIA 350', 'A', 24, 0, 'UW2-121', 161, 'Thursday', '08:45:00', '10:45:00'),
-('BISIA 401', 'A', 15, 0, NULL, 203, NULL, NULL, NULL),
+('BISIA 401', 'A', 15, 0, NULL, 203, 'TBD', '00:00:00', NULL),
 ('BISIA 450', 'A', 24, 0, 'UW2-121', 199, 'Tuesday Thursday', '15:30:00', '17:30:00'),
 ('BISSTS 307', 'A', 48, 0, 'UW1-220', 204, 'Wednesday', '15:30:00', '17:30:00'),
 ('BISSTS 355', 'A', 48, 0, 'UW1-010', 205, 'Wednesday', '13:15:00', '15:15:00'),
@@ -1266,7 +1266,7 @@ VALUES
 ('BIS 170', 'A', 48, 0, 'UW1-010', 207, 'Tuesday Thursday', '08:45:00', '10:45:00'),
 ('BIS 175', 'A', 48, 0, 'UW1-020', 208, 'Tuesday Thursday', '15:30:00', '17:30:00'),
 ('BIS 176', 'A', 60, 0, 'INV-111', 209, 'Wednesday', '13:15:00', '15:15:00'),
-('BIS 180', 'A', 90, 0, NULL, 210, NULL, NULL, NULL),
+('BIS 180', 'A', 90, 0, NULL, 210, 'TBD', '00:00:00', NULL),
 ('BIS 185', 'A', 60, 0, 'DISC-252', 193, 'Thursday', '11:00:00', '13:00:00'),
 ('BIS 200', 'A', 11, 0, 'UW2-031', 117, 'Monday Wednesday', '08:45:00', '10:45:00'),
 ('BIS 200', 'B', 11, 0, 'UW2-031', 117, 'Monday Wednesday', '11:00:00', '13:00:00'),
@@ -1276,7 +1276,7 @@ VALUES
 ('BIS 215', 'A', 36, 0, 'UW1-120', 191, 'Tuesday Thursday', '13:15:00', '15:15:00'),
 ('BIS 215', 'B', 36, 0, 'UW1-120', 211, 'Thursday', '08:45:00', '10:45:00'),
 ('BIS 220', 'A', 48, 0, 'UW1-030', 212, 'Monday', '15:30:00', '17:30:00'),
-('BIS 222', 'A', 48, 0, NULL, 213, NULL, NULL, NULL),
+('BIS 222', 'A', 48, 0, NULL, 213, 'TBD', '00:00:00', NULL),
 ('BIS 225', 'A', 48, 0, 'UW1-020', 214, 'Monday Wednesday', '13:15:00', '15:15:00'),
 ('BIS 231', 'A', 32, 0, 'UW1-120', 215, 'Monday Wednesday', '15:30:00', '17:30:00'),
 ('BIS 242', 'A', 48, 0, 'UW1-102', 216, 'Tuesday Thursday', '08:45:00', '10:45:00'),
@@ -1284,7 +1284,7 @@ VALUES
 ('BIS 245', 'A', 90, 0, 'DISC-162', 218, 'Tuesday', '15:30:00', '17:30:00'),
 ('BIS 255', 'A', 45, 0, 'DISC-162', 142, 'Thursday', '15:30:00', '17:30:00'),
 ('BIS 256', 'A', 40, 0, 'UW1-221', 160, 'Wednesday', '15:30:00', '17:30:00'),
-('BIS 261', 'A', 60, 0, NULL, 181, NULL, NULL, NULL),
+('BIS 261', 'A', 60, 0, NULL, 181, 'TBD', '00:00:00', NULL),
 ('BIS 290', 'A', 24, 0, 'UW2-211', 204, 'Wednesday', '11:00:00', '13:00:00'),
 ('BIS 290', 'B', 24, 0, 'UW1-220', 178, 'Thursday', '11:00:00', '13:00:00'),
 ('BIS 290', 'C', 24, 0, 'UW1-060', 219, 'Thursday', '15:30:00', '17:30:00'),
@@ -1294,40 +1294,40 @@ VALUES
 ('BIS 312', 'B', 36, 0, 'UW1-202', 222, 'Monday Wednesday', '13:15:00', '15:15:00'),
 ('BIS 312', 'C', 36, 0, 'UW1-302', 222, 'Monday Wednesday', '08:45:00', '10:45:00'),
 ('BIS 316', 'A', 48, 0, 'UW1-030', 223, 'Tuesday Thursday', '15:30:00', '17:30:00'),
-('BIS 322', 'A', 48, 0, NULL, 201, NULL, NULL, NULL),
+('BIS 322', 'A', 48, 0, NULL, 201, 'TBD', '00:00:00', NULL),
 ('BIS 324', 'A', 48, 0, 'UW2-141', 219, 'Thursday', '11:00:00', '13:00:00'),
-('BIS 331', 'A', 48, 0, NULL, 224, NULL, NULL, NULL),
-('BIS 340', 'A', 40, 0, NULL, 225, NULL, NULL, NULL),
+('BIS 331', 'A', 48, 0, NULL, 224, 'TBD', '00:00:00', NULL),
+('BIS 340', 'A', 40, 0, NULL, 225, 'TBD', '00:00:00', NULL),
 ('BIS 342', 'A', 32, 0, 'DISC-258', 216, 'Monday Wednesday', '11:00:00', '13:00:00'),
 ('BIS 342', 'B', 32, 0, 'DISC-258', 226, 'Tuesday Thursday', '13:15:00', '15:15:00'),
 ('BIS 344', 'A', 32, 0, 'DISC-258', 220, 'Tuesday', '15:30:00', '17:30:00'),
-('BIS 347', 'A', 48, 0, NULL, 181, NULL, NULL, NULL),
+('BIS 347', 'A', 48, 0, NULL, 181, 'TBD', '00:00:00', NULL),
 ('BIS 348', 'A', 48, 0, 'UW1-110', 207, 'Tuesday Thursday', '13:15:00', '15:15:00'),
 ('BIS 352', 'A', 32, 0, 'DISC-258', 226, 'Monday Wednesday', '13:15:00', '15:15:00'),
 ('BIS 353', 'A', 48, 0, 'UW1-010', 227, 'Tuesday', '13:15:00', '15:15:00'),
-('BIS 363', 'A', 48, 0, NULL, 228, NULL, NULL, NULL),
+('BIS 363', 'A', 48, 0, NULL, 228, 'TBD', '00:00:00', NULL),
 ('BIS 365', 'A', 48, 0, 'UW1-020', 229, 'Monday Wednesday', '15:30:00', '17:30:00'),
 ('BIS 369', 'A', 48, 0, 'UW1-030', 221, 'Tuesday Thursday', '11:00:00', '13:00:00'),
 ('BIS 380', 'A', 48, 0, 'UW1-010', 230, 'Thursday', '13:15:00', '15:15:00'),
-('BIS 386', 'A', 48, 0, NULL, 217, NULL, NULL, NULL),
-('BIS 398', 'A', 10, 0, NULL, 231, NULL, NULL, NULL),
-('BIS 398', 'B', 10, 0, NULL, 231, NULL, NULL, NULL),
+('BIS 386', 'A', 48, 0, NULL, 217, 'TBD', '00:00:00', NULL),
+('BIS 398', 'A', 10, 0, NULL, 231, 'TBD', '00:00:00', NULL),
+('BIS 398', 'B', 10, 0, NULL, 231, 'TBD', '00:00:00', NULL),
 ('BIS 414', 'A', 48, 0, 'UW1-020', 208, 'Tuesday Thursday', '13:15:00', '15:15:00'),
 ('BIS 449', 'A', 48, 0, 'UW1-210', 222, 'Monday Wednesday', '15:30:00', '17:30:00'),
 ('BIS 490', 'A', 24, 0, 'UW1-110', 230, 'Thursday', '08:45:00', '10:45:00'),
 ('BIS 490', 'B', 24, 0, 'UW2-040', 194, 'Monday Wednesday', '11:00:00', '13:00:00'),
-('BIS 492', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
+('BIS 492', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('BIS 495', 'A', 20, 0, 'UW1-060', 232, 'Friday', '11:00:00', '13:00:00'),
-('BIS 497', 'A', 5, 0, NULL, 233, NULL, NULL, NULL),
-('BIS 497', 'B', 5, 0, NULL, 233, NULL, NULL, NULL),
-('BIS 497', 'C', 5, 0, NULL, 233, NULL, NULL, NULL),
-('BIS 498', 'A', 10, 0, NULL, 234, NULL, NULL, NULL),
+('BIS 497', 'A', 5, 0, NULL, 233, 'TBD', '00:00:00', NULL),
+('BIS 497', 'B', 5, 0, NULL, 233, 'TBD', '00:00:00', NULL),
+('BIS 497', 'C', 5, 0, NULL, 233, 'TBD', '00:00:00', NULL),
+('BIS 498', 'A', 10, 0, NULL, 234, 'TBD', '00:00:00', NULL),
 ('BIS 498', 'B', 30, 0, 'UW1-021', 234, 'Monday Wednesday', '13:15:00', '15:15:00'),
-('BIS 498', 'C', 5, 0, NULL, 231, NULL, NULL, NULL),
+('BIS 498', 'C', 5, 0, NULL, 231, 'TBD', '00:00:00', NULL),
 ('BIS 499', 'A', 24, 0, 'UW1-121', 218, 'Tuesday', '13:15:00', '15:15:00'),
 ('BISSKL 250', 'A', 30, 0, 'UW1-031', 235, 'Thursday', '13:15:00', '15:15:00'),
-('BISSKL 351', 'A', 5, 0, NULL, NULL, NULL, NULL, NULL),
-('BISSKL 402', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
+('BISSKL 351', 'A', 5, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('BISSKL 402', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('BISLEP 301', 'A', 48, 0, 'UW1-010', 227, 'Monday', '13:15:00', '15:15:00'),
 ('BISLEP 302', 'A', 48, 0, 'UW1-010', 236, 'Tuesday Thursday', '17:45:00', '19:45:00'),
 ('BISMCS 240', 'A', 24, 0, 'UW2-121', 159, 'Tuesday Thursday', '13:15:00', '15:15:00'),
@@ -1339,24 +1339,24 @@ VALUES
 ('BPOLST 502', 'A', 30, 0, 'UW2-221', 240, 'Tuesday', '17:45:00', '22:00:00'),
 ('BPOLST 509', 'A', 30, 0, 'UW2-205', 236, 'Wednesday', '17:45:00', '19:45:00'),
 ('BPOLST 513', 'A', 30, 0, 'UW2-205', 241, 'Thursday', '17:45:00', '22:00:00'),
-('BPOLST 515', 'A', 5, 0, NULL, NULL, NULL, NULL, NULL),
-('BPOLST 598', 'A', 5, 0, NULL, NULL, NULL, NULL, NULL),
+('BPOLST 515', 'A', 5, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('BPOLST 598', 'A', 5, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('BISPSY 343', 'A', 48, 0, 'UW1-202', NULL, 'Tuesday', '13:15:00', '15:15:00'),
 ('BISPSY 350', 'A', 48, 0, 'UW1-220', 214, 'Monday Wednesday', '11:00:00', '13:00:00'),
 ('B HLTH 179', 'A', 48, 0, 'UW1-020', 242, 'Monday', '08:45:00', '10:45:00'),
 ('B HLTH 199', 'A', 48, 0, 'INV-134', 243, 'Wednesday', '13:15:00', '15:15:00'),
-('B HLTH 297', 'B', 48, 0, NULL, 244, NULL, NULL, NULL),
+('B HLTH 297', 'B', 48, 0, NULL, 244, 'TBD', '00:00:00', NULL),
 ('B HLTH 301', 'A', 48, 0, 'UW2-141', NULL, 'Wednesday', '11:00:00', '13:00:00'),
-('B HLTH 401', 'A', 10, 0, NULL, 243, NULL, NULL, NULL),
+('B HLTH 401', 'A', 10, 0, NULL, 243, 'TBD', '00:00:00', NULL),
 ('B HLTH 437', 'A', 48, 0, 'UW1-220', 245, 'Monday', '15:30:00', '17:30:00'),
-('B HLTH 497', 'A', 48, 0, NULL, 246, NULL, NULL, NULL),
+('B HLTH 497', 'A', 48, 0, NULL, 246, 'TBD', '00:00:00', NULL),
 ('B HLTH 497', 'B', 48, 0, 'UW2-141', 242, 'Tuesday', '15:30:00', '17:30:00'),
-('B HLTH 498', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B HLTH 499', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
+('B HLTH 498', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B HLTH 499', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('B HLTH 512', 'A', 25, 0, 'UW2-211', 247, 'Friday', '08:30:00', '12:15:00'),
-('B HLTH 597', 'A', 48, 0, NULL, 246, NULL, NULL, NULL),
-('B HLTH 598', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B HLTH 600', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
+('B HLTH 597', 'A', 48, 0, NULL, 246, 'TBD', '00:00:00', NULL),
+('B HLTH 598', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B HLTH 600', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('BHS 201', 'A', 48, 0, 'UW1-302', 245, 'Wednesday', '15:30:00', '17:30:00'),
 ('BHS 201', 'B', 48, 0, NULL, 248, 'Monday', '11:00:00', '13:00:00'),
 ('BHS 210', 'A', 48, 0, 'UW1-220', 249, 'Monday', '13:15:00', '15:15:00'),
@@ -1369,8 +1369,8 @@ VALUES
 ('BHS 510', 'A', 30, 0, 'UW1-261', 157, 'Tuesday', '17:45:00', '19:45:00'),
 ('BHS 525', 'A', 30, 0, 'UW2-205', 253, 'Tuesday', '17:45:00', '19:45:00'),
 ('BHS 529', 'A', 30, 0, 'UW2-211', 254, 'Tuesday', '15:30:00', '17:30:00'),
-('B NURS 297', 'A', 50, 0, NULL, 255, NULL, NULL, NULL),
-('B NURS 297', 'B', 20, 0, NULL, 255, NULL, NULL, NULL),
+('B NURS 297', 'A', 50, 0, NULL, 255, 'TBD', '00:00:00', NULL),
+('B NURS 297', 'B', 20, 0, NULL, 255, 'TBD', '00:00:00', NULL),
 ('B NURS 360', 'A', 45, 0, NULL, 256, 'Tuesday', '08:30:00', '12:40:00'),
 ('B NURS 420', 'A', 40, 0, 'UW1-021', 257, 'Thursday', '13:15:00', '17:25:00'),
 ('B NURS 420', 'B', 45, 0, NULL, 257, 'Friday', '13:15:00', '17:25:00'),
@@ -1379,9 +1379,9 @@ VALUES
 ('B NURS 460', 'B', 24, 0, 'UW1-021', 259, 'Thursday', '08:30:00', '12:40:00'),
 ('B NURS 460', 'C', 23, 0, NULL, 260, 'Friday', '08:30:00', '12:40:00'),
 ('B NURS 460', 'D', 22, 0, NULL, 260, 'Friday', '08:30:00', '12:40:00'),
-('B NURS 498', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B NURS 498', 'B', 10, 0, NULL, NULL, NULL, NULL, NULL),
-('B NURS 499', 'A', 10, 0, NULL, NULL, NULL, NULL, NULL),
+('B NURS 498', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B NURS 498', 'B', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
+('B NURS 499', 'A', 10, 0, NULL, NULL, 'TBD', '00:00:00', NULL),
 ('B NURS 509', 'A', 35, 0, 'UW1-021', 261, 'Friday', '13:15:00', '17:00:00'),
 ('B NURS 520', 'A', 35, 0, 'UW1-021', 259, 'Friday', '08:30:00', '12:15:00'),
 ('B NURS 591', 'A', 11, 0, 'UW1-031', 262, 'Friday', '13:15:00', '17:00:00'),
@@ -1488,123 +1488,123 @@ INSERT INTO StudentDegreeProgram (StudentID, DegreeName) VALUES
 -- ============================================================
 -- JUNCTION TABLE: StudentSection
 -- ============================================================
-INSERT INTO StudentSection (StudentID, SectionID, Grade) VALUES
+INSERT INTO StudentSection (StudentID, CourseCode, SectionLetter, MeetingDay, StartTime, Grade) VALUES
 -- Computer Science Students
 -- John Smith (8952211)
-(8952211, 2001, 'A'),    -- CSS 142 Section A (completed)
-(8952211, 2005, 'A-'),   -- CSS 143 Section A (completed)
-(8952211, 2012, NULL),   -- CSS 342 Section B (current)
-(8952211, 2014, NULL),   -- CSS 360 Section A (current)
+(8952211, 'CSS 142', 'A', 'Monday Wednesday', '11:00:00', 'A'),    -- completed
+(8952211, 'CSS 143', 'A', 'Tuesday Thursday', '15:30:00', 'A-'),   -- completed
+(8952211, 'CSS 342', 'B', 'Tuesday Thursday', '11:00:00', NULL),   -- current
+(8952211, 'CSS 360', 'A', 'Tuesday Thursday', '20:00:00', NULL),   -- current
 
 -- James Moore (3441667)
-(3441667, 2002, 'B+'),   -- CSS 142 Section B (completed)
-(3441667, 2006, 'A'),    -- CSS 143 Section B (completed)
-(3441667, 2011, NULL),   -- CSS 342 Section A (current)
-(3441667, 2016, NULL),   -- CSS 421 Section A (current)
+(3441667, 'CSS 142', 'B', 'Tuesday Thursday', '11:00:00', 'B+'),   -- completed
+(3441667, 'CSS 143', 'B', 'Monday Wednesday', '11:00:00', 'A'),    -- completed
+(3441667, 'CSS 342', 'A', 'Monday Wednesday', '13:15:00', NULL),   -- current
+(3441667, 'CSS 421', 'A', 'Monday Wednesday', '11:00:00', NULL),   -- current
 
 -- Joseph Thompson (5804435)
-(5804435, 2003, 'A-'),   -- CSS 142 Section C (completed)
-(5804435, 2010, 'B+'),   -- CSS 301 Section B (completed)
-(5804435, 2017, NULL),   -- CSS 475 Section A (current)
+(5804435, 'CSS 142', 'C', 'Monday Wednesday', '15:30:00', 'A-'),   -- completed
+(5804435, 'CSS 301', 'B', 'Monday Wednesday', '15:30:00', 'B+'),   -- completed
+(5804435, 'CSS 475', 'A', 'Monday Wednesday', '11:00:00', NULL),   -- current
 
 -- Business Administration Students
 -- Jane Doe (4445222)
-(4445222, 3001, 'A'),    -- B BUS 210 Section A (completed)
-(4445222, 3004, 'A'),    -- B BUS 215 Section A (completed)
-(4445222, 3008, NULL),   -- B BUS 220 Section A (current)
-(4445222, 3012, NULL),   -- B BUS 310 Section A (current)
+(4445222, 'B BUS 210', 'A', 'Monday Wednesday', '11:00:00', 'A'),  -- completed
+(4445222, 'B BUS 215', 'A', 'Tuesday Thursday', '15:30:00', 'A'),  -- completed
+(4445222, 'B BUS 220', 'A', 'Monday Wednesday', '08:45:00', NULL), -- current
+(4445222, 'B BUS 310', 'A', 'Monday Wednesday', '08:45:00', NULL), -- current
 
 -- Patricia Taylor (6291713)
-(6291713, 3002, 'B+'),   -- B BUS 210 Section B (completed)
-(6291713, 3006, 'A-'),   -- B BUS 215 Section C (completed)
-(6291713, 3013, NULL),   -- B BUS 320 Section A (current)
-(6291713, 3014, NULL),   -- B BUS 350 Section A (current)
+(6291713, 'B BUS 210', 'B', 'Tuesday Thursday', '13:15:00', 'B+'), -- completed
+(6291713, 'B BUS 215', 'C', 'Monday Wednesday', '11:00:00', 'A-'), -- completed
+(6291713, 'B BUS 320', 'A', 'Tuesday Thursday', '13:15:00', NULL), -- current
+(6291713, 'B BUS 350', 'A', 'Tuesday Thursday', '08:45:00', NULL), -- current
 
 -- Jennifer Garcia (2250529)
-(2250529, 3003, 'A'),    -- B BUS 210 Section C (completed)
-(2250529, 3010, 'B'),    -- B BUS 221 Section A (completed)
-(2250529, 3011, NULL),   -- B BUS 300 Section A (current)
+(2250529, 'B BUS 210', 'C', 'Tuesday Thursday', '08:45:00', 'A'),  -- completed
+(2250529, 'B BUS 221', 'A', 'Wednesday', '08:45:00', 'B'),         -- completed
+(2250529, 'B BUS 300', 'A', 'Monday Wednesday', '11:00:00', NULL), -- current
 
 -- Psychology Students
 -- Peter Jones (4416478)
-(4416478, 4001, 'A'),    -- BIS 170 Section A (completed)
-(4416478, 4002, 'A-'),   -- BIS 220 Section A (completed)
-(4416478, 4003, NULL),   -- BIS 225 Section A (current)
-(4416478, 4007, NULL),   -- BIS 369 Section A (current)
+(4416478, 'BIS 170', 'A', 'Tuesday Thursday', '08:45:00', 'A'),    -- completed
+(4416478, 'BIS 220', 'A', 'Monday', '15:30:00', 'A-'),             -- completed
+(4416478, 'BIS 225', 'A', 'Monday Wednesday', '13:15:00', NULL),   -- current
+(4416478, 'BIS 369', 'A', 'Tuesday Thursday', '11:00:00', NULL),   -- current
 
 -- Robert Anderson (8374420)
-(8374420, 4001, 'B+'),   -- BIS 170 Section A (completed)
-(8374420, 4004, 'B'),    -- BIS 312 Section A (completed)
-(8374420, 4006, NULL),   -- BIS 348 Section A (current)
+(8374420, 'BIS 170', 'A', 'Tuesday Thursday', '08:45:00', 'B+'),   -- completed
+(8374420, 'BIS 312', 'A', 'Tuesday Thursday', '08:45:00', 'B'),    -- completed
+(8374420, 'BIS 348', 'A', 'Tuesday Thursday', '13:15:00', NULL),   -- current
 
 -- Charles Martinez (9742868)
-(9742868, 4001, 'A-'),   -- BIS 170 Section A (completed)
-(9742868, 4005, 'B+'),   -- BIS 312 Section B (completed)
-(9742868, 4008, NULL),   -- BIS 449 Section A (current)
+(9742868, 'BIS 170', 'A', 'Tuesday Thursday', '08:45:00', 'A-'),   -- completed
+(9742868, 'BIS 312', 'B', 'Monday Wednesday', '13:15:00', 'B+'),   -- completed
+(9742868, 'BIS 449', 'A', 'Monday Wednesday', '15:30:00', NULL),   -- current
 
 -- Mechanical Engineering Students
 -- Mary Williams (9311809)
-(9311809, 5001, 'A'),    -- STMATH 124 Section A (completed)
-(9311809, 5003, 'A-'),   -- STMATH 124 Section C (completed)
-(9311809, 5008, NULL),   -- STMATH 125 Section E (current)
-(9311809, 6001, NULL),   -- B ME 222 Section A (current)
+(9311809, 'STMATH 124', 'A', 'Monday Wednesday Friday', '08:45:00', 'A'),  -- completed
+(9311809, 'STMATH 124', 'C', 'Tuesday Thursday Friday', '10:15:00', 'A-'), -- completed
+(9311809, 'STMATH 125', 'E', 'Monday Wednesday', '08:45:00', NULL),        -- current
+(9311809, 'B ME 222', 'A', 'Tuesday Thursday', '13:15:00', NULL),          -- current
 
 -- Linda Thomas (5225610)
-(5225610, 5002, 'B+'),   -- STMATH 124 Section B (completed)
-(5225610, 5006, 'B'),    -- STMATH 125 Section B (completed)
-(5225610, 6002, NULL),   -- B ME 315 Section A (current)
-(5225610, 6003, NULL),   -- B ME 332 Section A (current)
+(5225610, 'STMATH 124', 'B', 'Monday Wednesday Friday', '11:45:00', 'B+'), -- completed
+(5225610, 'STMATH 125', 'B', 'Monday Wednesday Friday', '10:15:00', 'B'),  -- completed
+(5225610, 'B ME 315', 'A', 'Tuesday Thursday', '08:45:00', NULL),          -- current
+(5225610, 'B ME 332', 'A', 'Monday Wednesday', '08:45:00', NULL),          -- current
 
 -- Jessica Robinson (2064219)
-(2064219, 5005, 'A-'),   -- STMATH 125 Section A (completed)
-(2064219, 6004, 'A'),    -- B ME 332 Section B (completed)
-(2064219, 6005, NULL),   -- B ME 341 Section A (current)
+(2064219, 'STMATH 125', 'A', 'Monday Wednesday Friday', '08:45:00', 'A-'),  -- completed
+(2064219, 'B ME 332', 'B', 'Monday Wednesday', '11:00:00', 'A'),            -- completed
+(2064219, 'B ME 341', 'A', 'Tuesday Thursday', '11:00:00', NULL),           -- current
 
 -- Nursing Students
 -- David Brown (5413952)
-(5413952, 7001, 'A'),    -- B NURS 360 Section A (completed)
-(5413952, 7002, 'A'),    -- B NURS 420 Section A (completed)
-(5413952, 7004, NULL),   -- B NURS 421 Section A (current)
-(5413952, 7005, NULL),   -- B NURS 460 Section A (current)
+(5413952, 'B NURS 360', 'A', 'Tuesday', '08:30:00', 'A'),       -- completed
+(5413952, 'B NURS 420', 'A', 'Thursday', '13:15:00', 'A'),      -- completed
+(5413952, 'B NURS 421', 'A', 'Tuesday', '13:15:00', NULL),      -- current
+(5413952, 'B NURS 460', 'A', 'Thursday', '08:30:00', NULL),     -- current
 
 -- William Jackson (5672644)
-(5672644, 7001, 'B+'),   -- B NURS 360 Section A (completed)
-(5672644, 7003, 'A-'),   -- B NURS 420 Section B (completed)
-(5672644, 7006, NULL),   -- B NURS 460 Section B (current)
+(5672644, 'B NURS 360', 'A', 'Tuesday', '08:30:00', 'B+'),      -- completed
+(5672644, 'B NURS 420', 'B', 'Friday', '13:15:00', 'A-'),       -- completed
+(5672644, 'B NURS 460', 'B', 'Thursday', '08:30:00', NULL),     -- current
 
 -- Mathematics Students
 -- Susan Davis (2197767)
-(2197767, 5001, 'A'),    -- STMATH 124 Section A (completed)
-(2197767, 5005, 'A'),    -- STMATH 125 Section A (completed)
-(2197767, 5009, NULL),   -- STMATH 207 Section A (current)
-(2197767, 5013, NULL),   -- STMATH 341 Section A (current)
+(2197767, 'STMATH 124', 'A', 'Monday Wednesday Friday', '08:45:00', 'A'),  -- completed
+(2197767, 'STMATH 125', 'A', 'Monday Wednesday Friday', '08:45:00', 'A'),  -- completed
+(2197767, 'STMATH 207', 'A', 'Monday Wednesday Friday', '08:45:00', NULL), -- current
+(2197767, 'STMATH 341', 'A', 'Monday Wednesday', '15:30:00', NULL),        -- current
 
 -- Elizabeth White (4853836)
-(4853836, 5003, 'A-'),   -- STMATH 124 Section C (completed)
-(4853836, 5007, 'B+'),   -- STMATH 125 Section C (completed)
-(4853836, 5011, NULL),   -- STMATH 208 Section B (current)
-(4853836, 5012, NULL),   -- STMATH 301 Section A (current)
+(4853836, 'STMATH 124', 'C', 'Tuesday Thursday Friday', '10:15:00', 'A-'), -- completed
+(4853836, 'STMATH 125', 'C', 'Tuesday Thursday', '13:15:00', 'B+'),        -- completed
+(4853836, 'STMATH 208', 'B', 'Tuesday Thursday', '13:15:00', NULL),        -- current
+(4853836, 'STMATH 301', 'A', 'Tuesday Thursday', '13:15:00', NULL),        -- current
 
 -- Electrical Engineering Students
 -- Karen Wilson (9192983)
-(9192983, 8001, 'A'),    -- B EE 233 Section A (completed)
-(9192983, 8002, 'A-'),   -- B EE 271 Section A (completed)
-(9192983, 8003, NULL),   -- B EE 331 Section A (current)
-(9192983, 8004, NULL),   -- B EE 341 Section A (current)
+(9192983, 'B EE 233', 'A', 'Monday Wednesday', '08:45:00', 'A'),           -- completed
+(9192983, 'B EE 271', 'A', 'Monday Wednesday', '15:30:00', 'A-'),          -- completed
+(9192983, 'B EE 331', 'A', 'Monday Wednesday', '08:45:00', NULL),          -- current
+(9192983, 'B EE 341', 'A', 'Thursday Friday', '08:45:00', NULL),           -- current
 
 -- Barbara Martin (8812468)
-(8812468, 8001, 'B+'),   -- B EE 233 Section A (completed)
-(8812468, 8002, 'A'),    -- B EE 271 Section A (completed)
-(8812468, 8005, NULL),   -- B EE 425 Section A (current)
-(8812468, 8006, NULL),   -- B EE 450 Section A (current)
+(8812468, 'B EE 233', 'A', 'Monday Wednesday', '08:45:00', 'B+'),          -- completed
+(8812468, 'B EE 271', 'A', 'Monday Wednesday', '15:30:00', 'A'),           -- completed
+(8812468, 'B EE 425', 'A', 'Tuesday Thursday', '13:15:00', NULL),          -- current
+(8812468, 'B EE 450', 'A', 'Tuesday Thursday', '13:15:00', NULL),          -- current
 
 -- English Literature students (cross-registration)
 -- Michael Miller (4517432)
-(4517432, 9001, 'A'),    -- B WRIT 134 Section A (completed)
-(4517432, 9003, 'A-'),   -- B WRIT 135 Section A (completed)
-(4517432, 9004, NULL),   -- B WRIT 135 Section B (current)
+(4517432, 'B WRIT 134', 'A', 'Monday Wednesday', '08:45:00', 'A'),         -- completed
+(4517432, 'B WRIT 135', 'A', 'Wednesday', '08:45:00', 'A-'),               -- completed
+(4517432, 'B WRIT 135', 'B', 'Monday', '11:00:00', NULL),                  -- current
 
 -- Richard Harris (8951872)
-(8951872, 9002, 'B+'),   -- B WRIT 134 Section B (completed)
-(8951872, 9005, 'A-'),   -- B WRIT 135 Section E (completed)
-(8951872, 9006, NULL);   -- BIS 136 Section A (current)
+(8951872, 'B WRIT 134', 'B', 'Monday Wednesday', '13:15:00', 'B+'),        -- completed
+(8951872, 'B WRIT 135', 'E', 'Monday', '15:30:00', 'A-'),                  -- completed
+(8951872, 'BIS 136', 'A', 'Monday Wednesday', '15:30:00', NULL);           -- current
