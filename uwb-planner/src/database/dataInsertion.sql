@@ -1428,24 +1428,151 @@ VALUES
 ('Bachelor of Science degree with a major in Economics', 'Major', 'Bothell', 0, 'The B.S. in Economics equips students with essential quantitative, complex problem-solving, and critical reasoning skills that are highly valued in today’s data-driven and artificial intelligence (AI)-enhanced industry, socioeconomic research, and policy making. The core courses establish a solid foundation in economic theory and data analytics, while a diverse selection of electives allows for specialization aligned with students’ career goals.'),
 ('Bachelor of Arts degree with a major in Interdisciplinary Arts', 'Major', 'Bothell', 0, 'Interdisciplinary Arts (IA) gives students the opportunity to develop expertise in areas spanning written, visual, performance, sound and video, internet, and publication arts as they respond to the constantly evolving world of contemporary arts practice. The IA major is built on the belief that advanced contributions to art can be made by anyone from any class, ethnicity, race, nationality, gender, and background. IA faculty implement the most current and relevant thinking and practices in art in order to inspire students to push towards new advancements and achievements.');
 
+-- ============================================================
+-- DATA INSERTION: Students
+-- ============================================================
 INSERT INTO Students (StudentID, FirstName, LastName, Major, Email) VALUES
-(1, 'John', 'Smith', 'Computer Science', 'john.smith@example.com'),
-(2, 'Jane', 'Doe', 'Business Administration', 'jane.doe@example.com'),
-(3, 'Peter', 'Jones', 'Psychology', 'peter.jones@example.com'),
-(4, 'Mary', 'Williams', 'Mechanical Engineering', 'mary.williams@example.com'),
-(5, 'David', 'Brown', 'Nursing', 'david.brown@example.com'),
-(6, 'Susan', 'Davis', 'Mathematics', 'susan.davis@example.com'),
-(7, 'Michael', 'Miller', 'English Literature', 'michael.miller@example.com'),
-(8, 'Karen', 'Wilson', 'Electrical Engineering', 'karen.wilson@example.com'),
-(9, 'James', 'Moore', 'Computer Science', 'james.moore@example.com'),
-(10, 'Patricia', 'Taylor', 'Business Administration', 'patricia.taylor@example.com'),
-(11, 'Robert', 'Anderson', 'Psychology', 'robert.anderson@example.com'),
-(12, 'Linda', 'Thomas', 'Mechanical Engineering', 'linda.thomas@example.com'),
-(13, 'William', 'Jackson', 'Nursing', 'william.jackson@example.com'),
-(14, 'Elizabeth', 'White', 'Mathematics', 'elizabeth.white@example.com'),
-(15, 'Richard', 'Harris', 'English Literature', 'richard.harris@example.com'),
-(16, 'Barbara', 'Martin', 'Electrical Engineering', 'barbara.martin@example.com'),
-(17, 'Joseph', 'Thompson', 'Computer Science', 'joseph.thompson@example.com'),
-(18, 'Jennifer', 'Garcia', 'Business Administration', 'jennifer.garcia@example.com'),
-(19, 'Charles', 'Martinez', 'Psychology', 'charles.martinez@example.com'),
-(20, 'Jessica', 'Robinson', 'Mechanical Engineering', 'jessica.robinson@example.com');
+(8952211, 'John', 'Smith', 'Computer Science', 'john.smith@uw.edu'),
+(4445222, 'Jane', 'Doe', 'Business Administration', 'jane.doe@uw.edu'),
+(4416478, 'Peter', 'Jones', 'Psychology', 'peter.jones@uw.edu'),
+(9311809, 'Mary', 'Williams', 'Mechanical Engineering', 'mary.williams@uw.edu'),
+(5413952, 'David', 'Brown', 'Nursing', 'david.brown@uw.edu'),
+(2197767, 'Susan', 'Davis', 'Mathematics', 'susan.davis@uw.edu'),
+(4517432, 'Michael', 'Miller', 'English Literature', 'michael.miller@uw.edu'),
+(9192983, 'Karen', 'Wilson', 'Electrical Engineering', 'karen.wilson@uw.edu'),
+(3441667, 'James', 'Moore', 'Computer Science', 'james.moore@uw.edu'),
+(6291713, 'Patricia', 'Taylor', 'Business Administration', 'patricia.taylor@uw.edu'),
+(8374420, 'Robert', 'Anderson', 'Psychology', 'robert.anderson@uw.edu'),
+(5225610, 'Linda', 'Thomas', 'Mechanical Engineering', 'linda.thomas@uw.edu'),
+(5672644, 'William', 'Jackson', 'Nursing', 'william.jackson@uw.edu'),
+(4853836, 'Elizabeth', 'White', 'Mathematics', 'elizabeth.white@uw.edu'),
+(8951872, 'Richard', 'Harris', 'English Literature', 'richard.harris@uw.edu'),
+(8812468, 'Barbara', 'Martin', 'Electrical Engineering', 'barbara.martin@uw.edu'),
+(5804435, 'Joseph', 'Thompson', 'Computer Science', 'joseph.thompson@uw.edu'),
+(2250529, 'Jennifer', 'Garcia', 'Business Administration', 'jennifer.garcia@uw.edu'),
+(9742868, 'Charles', 'Martinez', 'Psychology', 'charles.martinez@uw.edu'),
+(2064219, 'Jessica', 'Robinson', 'Mechanical Engineering', 'jessica.robinson@uw.edu');
+
+-- ============================================================
+-- JUNCTION TABLE: StudentSection
+-- ============================================================
+INSERT INTO StudentSection (StudentID, SectionID, Grade) VALUES
+-- Computer Science Students
+-- John Smith (8952211)
+(8952211, 2001, 'A'),    -- CSS 142 Section A (completed)
+(8952211, 2005, 'A-'),   -- CSS 143 Section A (completed)
+(8952211, 2012, NULL),   -- CSS 342 Section B (current)
+(8952211, 2014, NULL),   -- CSS 360 Section A (current)
+
+-- James Moore (3441667)
+(3441667, 2002, 'B+'),   -- CSS 142 Section B (completed)
+(3441667, 2006, 'A'),    -- CSS 143 Section B (completed)
+(3441667, 2011, NULL),   -- CSS 342 Section A (current)
+(3441667, 2016, NULL),   -- CSS 421 Section A (current)
+
+-- Joseph Thompson (5804435)
+(5804435, 2003, 'A-'),   -- CSS 142 Section C (completed)
+(5804435, 2010, 'B+'),   -- CSS 301 Section B (completed)
+(5804435, 2017, NULL),   -- CSS 475 Section A (current)
+
+-- Business Administration Students
+-- Jane Doe (4445222)
+(4445222, 3001, 'A'),    -- B BUS 210 Section A (completed)
+(4445222, 3004, 'A'),    -- B BUS 215 Section A (completed)
+(4445222, 3008, NULL),   -- B BUS 220 Section A (current)
+(4445222, 3012, NULL),   -- B BUS 310 Section A (current)
+
+-- Patricia Taylor (6291713)
+(6291713, 3002, 'B+'),   -- B BUS 210 Section B (completed)
+(6291713, 3006, 'A-'),   -- B BUS 215 Section C (completed)
+(6291713, 3013, NULL),   -- B BUS 320 Section A (current)
+(6291713, 3014, NULL),   -- B BUS 350 Section A (current)
+
+-- Jennifer Garcia (2250529)
+(2250529, 3003, 'A'),    -- B BUS 210 Section C (completed)
+(2250529, 3010, 'B'),    -- B BUS 221 Section A (completed)
+(2250529, 3011, NULL),   -- B BUS 300 Section A (current)
+
+-- Psychology Students
+-- Peter Jones (4416478)
+(4416478, 4001, 'A'),    -- BIS 170 Section A (completed)
+(4416478, 4002, 'A-'),   -- BIS 220 Section A (completed)
+(4416478, 4003, NULL),   -- BIS 225 Section A (current)
+(4416478, 4007, NULL),   -- BIS 369 Section A (current)
+
+-- Robert Anderson (8374420)
+(8374420, 4001, 'B+'),   -- BIS 170 Section A (completed)
+(8374420, 4004, 'B'),    -- BIS 312 Section A (completed)
+(8374420, 4006, NULL),   -- BIS 348 Section A (current)
+
+-- Charles Martinez (9742868)
+(9742868, 4001, 'A-'),   -- BIS 170 Section A (completed)
+(9742868, 4005, 'B+'),   -- BIS 312 Section B (completed)
+(9742868, 4008, NULL),   -- BIS 449 Section A (current)
+
+-- Mechanical Engineering Students
+-- Mary Williams (9311809)
+(9311809, 5001, 'A'),    -- STMATH 124 Section A (completed)
+(9311809, 5003, 'A-'),   -- STMATH 124 Section C (completed)
+(9311809, 5008, NULL),   -- STMATH 125 Section E (current)
+(9311809, 6001, NULL),   -- B ME 222 Section A (current)
+
+-- Linda Thomas (5225610)
+(5225610, 5002, 'B+'),   -- STMATH 124 Section B (completed)
+(5225610, 5006, 'B'),    -- STMATH 125 Section B (completed)
+(5225610, 6002, NULL),   -- B ME 315 Section A (current)
+(5225610, 6003, NULL),   -- B ME 332 Section A (current)
+
+-- Jessica Robinson (2064219)
+(2064219, 5005, 'A-'),   -- STMATH 125 Section A (completed)
+(2064219, 6004, 'A'),    -- B ME 332 Section B (completed)
+(2064219, 6005, NULL),   -- B ME 341 Section A (current)
+
+-- Nursing Students
+-- David Brown (5413952)
+(5413952, 7001, 'A'),    -- B NURS 360 Section A (completed)
+(5413952, 7002, 'A'),    -- B NURS 420 Section A (completed)
+(5413952, 7004, NULL),   -- B NURS 421 Section A (current)
+(5413952, 7005, NULL),   -- B NURS 460 Section A (current)
+
+-- William Jackson (5672644)
+(5672644, 7001, 'B+'),   -- B NURS 360 Section A (completed)
+(5672644, 7003, 'A-'),   -- B NURS 420 Section B (completed)
+(5672644, 7006, NULL),   -- B NURS 460 Section B (current)
+
+-- Mathematics Students
+-- Susan Davis (2197767)
+(2197767, 5001, 'A'),    -- STMATH 124 Section A (completed)
+(2197767, 5005, 'A'),    -- STMATH 125 Section A (completed)
+(2197767, 5009, NULL),   -- STMATH 207 Section A (current)
+(2197767, 5013, NULL),   -- STMATH 341 Section A (current)
+
+-- Elizabeth White (4853836)
+(4853836, 5003, 'A-'),   -- STMATH 124 Section C (completed)
+(4853836, 5007, 'B+'),   -- STMATH 125 Section C (completed)
+(4853836, 5011, NULL),   -- STMATH 208 Section B (current)
+(4853836, 5012, NULL),   -- STMATH 301 Section A (current)
+
+-- Electrical Engineering Students
+-- Karen Wilson (9192983)
+(9192983, 8001, 'A'),    -- B EE 233 Section A (completed)
+(9192983, 8002, 'A-'),   -- B EE 271 Section A (completed)
+(9192983, 8003, NULL),   -- B EE 331 Section A (current)
+(9192983, 8004, NULL),   -- B EE 341 Section A (current)
+
+-- Barbara Martin (8812468)
+(8812468, 8001, 'B+'),   -- B EE 233 Section A (completed)
+(8812468, 8002, 'A'),    -- B EE 271 Section A (completed)
+(8812468, 8005, NULL),   -- B EE 425 Section A (current)
+(8812468, 8006, NULL),   -- B EE 450 Section A (current)
+
+-- English Literature students (cross-registration)
+-- Michael Miller (4517432)
+(4517432, 9001, 'A'),    -- B WRIT 134 Section A (completed)
+(4517432, 9003, 'A-'),   -- B WRIT 135 Section A (completed)
+(4517432, 9004, NULL),   -- B WRIT 135 Section B (current)
+
+-- Richard Harris (8951872)
+(8951872, 9002, 'B+'),   -- B WRIT 134 Section B (completed)
+(8951872, 9005, 'A-'),   -- B WRIT 135 Section E (completed)
+(8951872, 9006, NULL);   -- BIS 136 Section A (current)

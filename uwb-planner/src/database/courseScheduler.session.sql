@@ -66,3 +66,25 @@ CREATE TABLE DegreeProgram (
 -- END OF MASTER SQL FILE
 -- Total tables: 5 (Students, Courses, Professors, Section, DegreeProgram)
 -- ============================================================
+
+-- ============================================================
+-- JUNCTION TABLES
+-- ============================================================
+--SudentCourses
+CREATE TABLE StudentSection(
+    StudentID INT,
+    SectionID INT,
+    PRIMARY KEY (StudentID, SectionID),
+    FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
+    FOREIGN KEY (SectionID) REFERENCES Section(SectionID),
+    Grade VARCHAR(2)
+);
+
+--StudentDegreeProgram
+CREATE TABLE StudentDegreeProgram (
+    StudentID INT,
+    DegreeName VARCHAR(200),
+    PRIMARY KEY (StudentID, DegreeName),
+    FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
+    FOREIGN KEY (DegreeName) REFERENCES DegreeProgram(DegreeName)
+);
