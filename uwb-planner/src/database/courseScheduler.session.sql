@@ -1,10 +1,16 @@
-DROP TABLE IF EXISTS Section;
-DROP TABLE IF EXISTS DegreeProgram;
-DROP TABLE IF EXISTS Students;
-DROP TABLE IF EXISTS Courses;
-DROP TABLE IF EXISTS Professors;
-
-
+-- ============================================================
+-- UWB MyPlan Scheduling App - Master PostgreSQL/Supabase Setup
+-- ============================================================
+-- Drop existing tables (if any) in correct order to respect foreign keys
+-- DROP TABLE IF EXISTS Section CASCADE;
+-- DROP TABLE IF EXISTS DegreeProgram CASCADE;
+-- DROP TABLE IF EXISTS Students CASCADE;
+-- DROP TABLE IF EXISTS Courses CASCADE;
+-- DROP TABLE IF EXISTS Professors CASCADE;
+-- ============================================================
+-- TABLE DEFINITIONS 
+-- ============================================================
+-- Students Table
 CREATE TABLE Students (
     StudentID INT PRIMARY KEY,
     FirstName VARCHAR(50) NOT NULL,
@@ -12,6 +18,8 @@ CREATE TABLE Students (
     Major VARCHAR(100) NOT NULL,
     Email VARCHAR(100) UNIQUE NOT NULL
 );
+
+-- Courses Table
 CREATE TABLE Courses (
     CourseCode VARCHAR(12) PRIMARY KEY,
     CourseName VARCHAR(100) NOT NULL,
@@ -19,6 +27,8 @@ CREATE TABLE Courses (
     Major VARCHAR(100) NOT NULL,
     Description TEXT
 );
+
+-- Professors Table
 CREATE TABLE Professors (
     EmployeeID INT PRIMARY KEY,
     FirstName VARCHAR(50) NOT NULL,
@@ -26,8 +36,10 @@ CREATE TABLE Professors (
     Email VARCHAR(100),
     MajorOfInstruction VARCHAR(100) NOT NULL
 );
+
+-- Section Table
 CREATE TABLE Section (
-    SectionID INTEGER PRIMARY KEY AUTOINCREMENT,
+    SectionID SERIAL PRIMARY KEY,
     CourseCode VARCHAR(12) NOT NULL,
     SectionLetter CHAR(1) NOT NULL DEFAULT 'A',
     MaxEnrolled INT NOT NULL,
@@ -41,10 +53,16 @@ CREATE TABLE Section (
     FOREIGN KEY (Instructor) REFERENCES Professors(EmployeeID),
     UNIQUE (CourseCode, SectionLetter, StartTime, MeetingDay)
 );
+
+-- DegreeProgram Table
 CREATE TABLE DegreeProgram (
-    DegreeName VARCHAR(70) PRIMARY KEY NOT NULL,
+    DegreeName VARCHAR(200) PRIMARY KEY NOT NULL,
     DegreeType VARCHAR(5) NOT NULL CHECK (DegreeType IN ('Major', 'Minor')),
     SchoolDivision VARCHAR(100) NOT NULL,
     EnrolledStudentsMax INT DEFAULT 0,
     Description TEXT
 );
+-- ============================================================
+-- END OF MASTER SQL FILE
+-- Total tables: 5 (Students, Courses, Professors, Section, DegreeProgram)
+-- ============================================================
