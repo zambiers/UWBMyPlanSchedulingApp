@@ -4,7 +4,6 @@ import './NavBarStyles.css';
 const links = [
   { to: '/', label: 'Overview' },
   { to: '/students', label: 'Students' },
-  { to: '/student', label: 'Student Portal' },
   { to: '/professors', label: 'Professors' },
   { to: '/courses', label: 'Courses' },
   { to: '/sections', label: 'Sections' },

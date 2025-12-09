@@ -170,6 +170,76 @@ app.get('/api/students/:studentId/schedule', (req, res) => {
   }
 });
 
+// Aggregation: students per degree program
+app.get('/api/queries/students-per-degree', (req, res) => {
+  try {
+    const rows = db
+      .prepare(
+        `
+        SELECT d.DegreeName,
+               d.DegreeType,
+               COUNT(sdp.StudentID) AS EnrolledStudents
+        FROM DegreeProgram d
+        LEFT JOIN StudentDegreeProgram sdp ON d.DegreeName = sdp.DegreeName
+        GROUP BY d.DegreeName, d.DegreeType
+        ORDER BY EnrolledStudents DESC, d.DegreeName;
+      `,
+      )
+      .all();
+    res.json(rows);
+  } catch (error) {
+    console.error('[sqlite] students-per-degree failed', error);
+    res.status(500).json({ error: 'Failed to fetch data' });
+  }
+});
+
+// Aggregation: instructor teaching load
+app.get('/api/queries/instructor-load', (req, res) => {
+  try {
+    const rows = db
+      .prepare(
+        `
+        SELECT p.EmployeeID,
+               p.FirstName || ' ' || p.LastName AS InstructorName,
+               COUNT(se.CourseCode) AS NumberOfSections,
+               COALESCE(SUM(se.MaxEnrolled), 0) AS TotalCapacity
+        FROM Professors p
+        LEFT JOIN Section se ON p.EmployeeID = se.Instructor
+        GROUP BY p.EmployeeID, p.FirstName, p.LastName
+        ORDER BY NumberOfSections DESC;
+      `,
+      )
+      .all();
+    res.json(rows);
+  } catch (error) {
+    console.error('[sqlite] instructor-load failed', error);
+    res.status(500).json({ error: 'Failed to fetch data' });
+  }
+});
+
+// Nested: students with no enrollments
+app.get('/api/queries/students-no-enrollments', (req, res) => {
+  try {
+    const rows = db
+      .prepare(
+        `
+        SELECT s.StudentID, s.FirstName, s.LastName, s.Major
+        FROM Students s
+        WHERE NOT EXISTS (
+          SELECT 1
+          FROM StudentSection ss
+          WHERE ss.StudentID = s.StudentID
+        );
+      `,
+      )
+      .all();
+    res.json(rows);
+  } catch (error) {
+    console.error('[sqlite] students-no-enrollments failed', error);
+    res.status(500).json({ error: 'Failed to fetch data' });
+  }
+});
+
 // Open sections not already enrolled (sample query 5)
 app.get('/api/open-sections', (req, res) => {
   const studentId = Number(req.query.studentId);

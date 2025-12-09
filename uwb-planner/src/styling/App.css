@@ -66,6 +66,10 @@
   border-radius: 4px;
 }
 
+.form-row label {
+  font-weight: 600;
+}
+
 .button-row {
   display: flex;
   flex-wrap: wrap;
@@ -74,11 +78,14 @@
 }
 
 .button-row button,
+.button-link,
 .data-table button {
   padding: 6px 10px;
   border: 1px solid #aaa;
   background: #f7f7f7;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .button-row button:disabled {
