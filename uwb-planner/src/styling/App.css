@@ -39,6 +39,57 @@
   margin-top: 12px;
 }
 
+.subpanel {
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 16px;
+  background: #fafafa;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-row input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.button-row button,
+.data-table button {
+  padding: 6px 10px;
+  border: 1px solid #aaa;
+  background: #f7f7f7;
+  cursor: pointer;
+}
+
+.button-row button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.info {
+  color: #0a5f00;
+}
+
 .data-table {
   width: 100%;
   border-collapse: collapse;

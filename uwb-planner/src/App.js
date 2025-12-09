@@ -10,6 +10,7 @@ import Programs from './pages/programs';
 import Sections from './pages/section';
 import StudentSections from './pages/studentSections';
 import StudentDegrees from './pages/studentDegrees';
+import StudentDashboard from './pages/studentDashboard';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route element={<Layout />}>
             <Route path="/" element={<Overview />} />
             <Route path="/students" element={<Students />} />
+            <Route path="/student" element={<StudentDashboard />} />
             <Route path="/professors" element={<Professors />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/programs" element={<Programs />} />
