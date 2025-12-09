@@ -8,6 +8,11 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "better-sqlite3": "^11.7.2",
+    "concurrently": "^9.1.2",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "express": "^4.21.2",
     "postgres": "^3.4.7",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
@@ -16,11 +21,16 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env REACT_APP_DATA_SOURCE=supabase react-scripts start",
+    "start:supabase": "cross-env REACT_APP_DATA_SOURCE=supabase react-scripts start",
+    "start:sqlite:ephemeral": "cross-env REACT_APP_DATA_SOURCE=sqlite SQLITE_RESET=true SQLITE_DB_PATH=.tmp/dev-sqlite.db concurrently \"node scripts/sqlite-server.js\" \"react-scripts start\"",
+    "start:sqlite:persistent": "cross-env REACT_APP_DATA_SOURCE=sqlite SQLITE_DB_PATH=data/local-sqlite.db concurrently \"node scripts/sqlite-server.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare:sqlite": "cross-env SQLITE_RESET=true node scripts/prepare-sqlite.js"
   },
+  "proxy": "http://localhost:4000",
   "eslintConfig": {
     "extends": [
       "react-app",

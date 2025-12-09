@@ -1,8 +1,5 @@
+import DataTable from '../components/DataTable';
+
 export default function Professors() {
-  return (
-    <div>
-      <h1>Professors</h1>
-      <p>Professors page</p>
-    </div>
-  );
+  return <DataTable title="Professors" tableKey="professors" />;
 }

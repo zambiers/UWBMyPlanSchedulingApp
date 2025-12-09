@@ -1,29 +1,34 @@
 import './styling/App.css';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import { Layout } from './components/Layout.js';
+import { Layout } from './components/Layout';
 
-//pages
-import students from './pages/students.jsx';
-import professors from './pages/professors.jsx';
-import courses from './pages/courses.jsx';
-import programs from './pages/programs.jsx';
-import sections from './pages/section.jsx';
-import home from './pages/overview.jsx';
+import Overview from './pages/overview';
+import Students from './pages/students';
+import Professors from './pages/professors';
+import Courses from './pages/courses';
+import Programs from './pages/programs';
+import Sections from './pages/section';
+import StudentSections from './pages/studentSections';
+import StudentDegrees from './pages/studentDegrees';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<home />} />
-          <Route path="/studs" element={<students />} />
-          <Route path="/profs" element={<professors />} />
-          <Route path="/courses" element={<courses />} />
-          <Route path="/programs" element={<programs />} />
-          <Route path="/sections" element={<sections />} />
-        </Route>
-      </Routes>
-    </Router>
+    <div className="app-shell">
+      <Router>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Overview />} />
+            <Route path="/students" element={<Students />} />
+            <Route path="/professors" element={<Professors />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/programs" element={<Programs />} />
+            <Route path="/sections" element={<Sections />} />
+            <Route path="/student-sections" element={<StudentSections />} />
+            <Route path="/student-degrees" element={<StudentDegrees />} />
+          </Route>
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

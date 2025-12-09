@@ -1,3 +1,5 @@
+first cd into uwb-planner\src\database
+
 load in from .db file
 
 outside sqlite3 shell:

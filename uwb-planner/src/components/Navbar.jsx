@@ -1,14 +1,28 @@
-import { Link } from "react-router-dom";
-import './NavBarStyles.css'; 
+import { Link } from 'react-router-dom';
+import './NavBarStyles.css';
+
+const links = [
+  { to: '/', label: 'Overview' },
+  { to: '/students', label: 'Students' },
+  { to: '/professors', label: 'Professors' },
+  { to: '/courses', label: 'Courses' },
+  { to: '/sections', label: 'Sections' },
+  { to: '/programs', label: 'Degree Programs' },
+  { to: '/student-sections', label: 'Student Sections' },
+  { to: '/student-degrees', label: 'Student Degrees' },
+];
 
 export default function Navbar() {
   return (
-    <div className="navbar">
-        <Link to="/" className="nav-button">UWB Overview</Link>
-      <Link to="/studs" className="nav-button">Students</Link>
-      <Link to="/profs" className="nav-button">Professors</Link>
-      <Link to="/courses" className="nav-button">Courses</Link>
-      <Link to="/programs" className="nav-button">Degree Programs</Link>
-    </div>
+    <nav className="navbar">
+      <div className="nav-brand">UWB Planner</div>
+      <div className="nav-links">
+        {links.map((link) => (
+          <Link key={link.to} to={link.to} className="nav-link">
+            {link.label}
+          </Link>
+        ))}
+      </div>
+    </nav>
   );
 }
