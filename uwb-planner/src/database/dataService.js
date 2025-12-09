@@ -365,19 +365,19 @@ async function queryInstructorLoadSupabase() {
 
   const { data: profs, error: profErr } = await supabase
     .from('professors')
-    .select('EmployeeID, FirstName, LastName')
-    .in('EmployeeID', ids);
+    .select('employeeid, firstname, lastname')
+    .in('employeeid', ids);
   if (profErr) throw new Error(profErr.message);
   const profMap = {};
   profs?.forEach((p) => {
-    profMap[p.EmployeeID] = p;
+    profMap[p.employeeid] = p;
   });
 
   return Object.values(load)
     .map((entry) => ({
       ...entry,
       InstructorName: profMap[entry.EmployeeID]
-        ? `${profMap[entry.EmployeeID].FirstName} ${profMap[entry.EmployeeID].LastName}`
+        ? `${profMap[entry.EmployeeID].firstname ?? ''} ${profMap[entry.EmployeeID].lastname ?? ''}`.trim()
         : '',
     }))
     .sort((a, b) => b.NumberOfSections - a.NumberOfSections);
