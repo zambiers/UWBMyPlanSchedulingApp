@@ -127,6 +127,71 @@ app.get('/api/courses/:courseCode/sections', (req, res) => {
   }
 });
 
+// Sections taught by a professor
+app.get('/api/professors/:instructorId/sections', (req, res) => {
+  const instructorId = Number(req.params.instructorId);
+  if (Number.isNaN(instructorId)) {
+    res.status(400).json({ error: 'Invalid instructor id' });
+    return;
+  }
+
+  try {
+    const rows = db
+      .prepare(
+        `
+        SELECT CourseCode, SectionLetter, MeetingDay, StartTime, EndTime, RoomNum,
+               MaxEnrolled, EnrolledStudents
+        FROM Section
+        WHERE Instructor = ?
+        ORDER BY CourseCode, MeetingDay, StartTime;
+      `,
+      )
+      .all(instructorId);
+    res.json(rows);
+  } catch (error) {
+    console.error('[sqlite] instructor sections failed', error);
+    res.status(500).json({ error: 'Failed to fetch sections' });
+  }
+});
+
+// Roster for a section
+app.get('/api/sections/roster', (req, res) => {
+  const { courseCode, sectionLetter, meetingDay, startTime } = req.query;
+  if (!courseCode || !sectionLetter || !meetingDay || !startTime) {
+    res.status(400).json({ error: 'Missing section identifier' });
+    return;
+  }
+
+  try {
+    const rows = db
+      .prepare(
+        `
+        SELECT ss.StudentID,
+               ss.CourseCode,
+               ss.SectionLetter,
+               ss.MeetingDay,
+               ss.StartTime,
+               ss.Grade,
+               s.FirstName,
+               s.LastName,
+               s.Email
+        FROM StudentSection ss
+        JOIN Students s ON ss.StudentID = s.StudentID
+        WHERE ss.CourseCode = ?
+          AND ss.SectionLetter = ?
+          AND ss.MeetingDay = ?
+          AND ss.StartTime = ?
+        ORDER BY s.LastName, s.FirstName;
+      `,
+      )
+      .all(courseCode, sectionLetter, meetingDay, startTime);
+    res.json(rows);
+  } catch (error) {
+    console.error('[sqlite] roster failed', error);
+    res.status(500).json({ error: 'Failed to fetch roster' });
+  }
+});
+
 // Student schedule (sample query 1)
 app.get('/api/students/:studentId/schedule', (req, res) => {
   const studentId = Number(req.params.studentId);
@@ -281,6 +346,36 @@ app.get('/api/open-sections', (req, res) => {
   } catch (error) {
     console.error('[sqlite] open-sections failed', error);
     res.status(500).json({ error: 'Failed to fetch open sections' });
+  }
+});
+
+// Update grade for a student in a section
+app.post('/api/sections/grade', (req, res) => {
+  const { studentId, courseCode, sectionLetter, meetingDay, startTime, grade } = req.body || {};
+  if (!studentId || !courseCode || !sectionLetter || !meetingDay || !startTime) {
+    res.status(400).json({ error: 'Missing required fields' });
+    return;
+  }
+
+  try {
+    const result = db
+      .prepare(
+        `
+        UPDATE StudentSection
+        SET Grade = ?
+        WHERE StudentID = ? AND CourseCode = ? AND SectionLetter = ? AND MeetingDay = ? AND StartTime = ?
+      `,
+      )
+      .run(grade ?? null, studentId, courseCode, sectionLetter, meetingDay, startTime);
+
+    if (result.changes === 0) {
+      res.status(404).json({ error: 'Enrollment not found' });
+      return;
+    }
+    res.json({ ok: true });
+  } catch (error) {
+    console.error('[sqlite] update grade failed', error);
+    res.status(500).json({ error: 'Failed to update grade' });
   }
 });
 

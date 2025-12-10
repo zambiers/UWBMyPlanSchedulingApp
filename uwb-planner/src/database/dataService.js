@@ -113,6 +113,46 @@ export async function fetchSectionsByCourse(courseCode) {
   return fetchSectionsSupabase(courseCode);
 }
 
+export async function fetchInstructorSections(instructorId) {
+  if (DATA_SOURCE === 'sqlite') {
+    const response = await fetch(`/api/professors/${instructorId}/sections`);
+    if (!response.ok) throw new Error('Failed to load sections');
+    return response.json();
+  }
+  return fetchInstructorSectionsSupabase(instructorId);
+}
+
+export async function fetchSectionRoster(section) {
+  const params = new URLSearchParams({
+    courseCode: section.CourseCode,
+    sectionLetter: section.SectionLetter,
+    meetingDay: section.MeetingDay,
+    startTime: section.StartTime,
+  });
+  if (DATA_SOURCE === 'sqlite') {
+    const response = await fetch(`/api/sections/roster?${params.toString()}`);
+    if (!response.ok) throw new Error('Failed to load roster');
+    return response.json();
+  }
+  return fetchSectionRosterSupabase(section);
+}
+
+export async function updateGrade({ studentId, courseCode, sectionLetter, meetingDay, startTime, grade }) {
+  if (DATA_SOURCE === 'sqlite') {
+    const response = await fetch('/api/sections/grade', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ studentId, courseCode, sectionLetter, meetingDay, startTime, grade }),
+    });
+    if (!response.ok) {
+      const err = await response.json().catch(() => ({}));
+      throw new Error(err.error || 'Failed to update grade');
+    }
+    return response.json();
+  }
+  return updateGradeSupabase({ studentId, courseCode, sectionLetter, meetingDay, startTime, grade });
+}
+
 export async function queryStudentsPerDegree() {
   if (DATA_SOURCE === 'sqlite') {
     const response = await fetch('/api/queries/students-per-degree');
@@ -330,6 +370,63 @@ async function fetchSectionsSupabase(courseCode) {
     SeatsAvailable: (row.maxenrolled ?? row.MaxEnrolled ?? 0) - (row.enrolledstudents ?? row.EnrolledStudents ?? 0),
     InstructorName: '',
   }));
+}
+
+async function fetchInstructorSectionsSupabase(instructorId) {
+  const { data, error } = await supabase
+    .from('section')
+    .select('coursecode, sectionletter, meetingday, starttime, endtime, roomnum, maxenrolled, enrolledstudents')
+    .eq('instructor', instructorId);
+  if (error) throw new Error(error.message);
+  return (data || []).map((row) => ({
+    CourseCode: row.coursecode,
+    SectionLetter: row.sectionletter,
+    MeetingDay: row.meetingday,
+    StartTime: row.starttime,
+    EndTime: row.endtime,
+    RoomNum: row.roomnum,
+    MaxEnrolled: row.maxenrolled,
+    EnrolledStudents: row.enrolledstudents,
+  }));
+}
+
+async function fetchSectionRosterSupabase(section) {
+  const { data, error } = await supabase
+    .from('studentsection')
+    .select('studentid, grade, students (firstname, lastname, email)')
+    .match({
+      coursecode: section.CourseCode,
+      sectionletter: section.SectionLetter,
+      meetingday: section.MeetingDay,
+      starttime: section.StartTime,
+    });
+  if (error) throw new Error(error.message);
+  return (data || []).map((row) => ({
+    StudentID: row.studentid,
+    Grade: row.grade,
+    FirstName: row.students?.firstname || '',
+    LastName: row.students?.lastname || '',
+    Email: row.students?.email || '',
+    CourseCode: section.CourseCode,
+    SectionLetter: section.SectionLetter,
+    MeetingDay: section.MeetingDay,
+    StartTime: section.StartTime,
+  }));
+}
+
+async function updateGradeSupabase({ studentId, courseCode, sectionLetter, meetingDay, startTime, grade }) {
+  const { error } = await supabase
+    .from('studentsection')
+    .update({ grade })
+    .match({
+      studentid: studentId,
+      coursecode: courseCode,
+      sectionletter: sectionLetter,
+      meetingday: meetingDay,
+      starttime: startTime,
+    });
+  if (error) throw new Error(error.message);
+  return { ok: true };
 }
 
 async function queryStudentsPerDegreeSupabase() {

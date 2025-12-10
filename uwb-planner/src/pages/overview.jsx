@@ -15,6 +15,9 @@ export default function Home() {
         <Link className="button-link" to="/student">
           Open Student Portal
         </Link>
+        <Link className="button-link" to="/professor">
+          Open Professor Portal
+        </Link>
         <a className="button-link" href="#/sample-queries">
           View Sample Queries
         </a>

@@ -12,6 +12,7 @@ import StudentSections from './pages/studentSections';
 import StudentDegrees from './pages/studentDegrees';
 import StudentDashboard from './pages/studentDashboard';
 import SampleQueries from './pages/sampleQueries';
+import ProfessorDashboard from './pages/professorDashboard';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/student-sections" element={<StudentSections />} />
             <Route path="/student-degrees" element={<StudentDegrees />} />
             <Route path="/sample-queries" element={<SampleQueries />} />
+            <Route path="/professor" element={<ProfessorDashboard />} />
           </Route>
         </Routes>
       </Router>
