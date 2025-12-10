@@ -10,6 +10,7 @@ const links = [
   { to: '/programs', label: 'Degree Programs' },
   { to: '/student-sections', label: 'Student Sections' },
   { to: '/student-degrees', label: 'Student Degrees' },
+  { to: '/admin', label: 'Admin Portal' },
 ];
 
 export default function Navbar() {

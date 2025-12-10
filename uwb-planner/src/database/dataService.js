@@ -2,15 +2,55 @@ import { supabase } from './supabaseClient';
 
 const DATA_SOURCE = (process.env.REACT_APP_DATA_SOURCE || 'supabase').toLowerCase();
 
-const TABLE_MAP = {
-  students: 'students',
-  professors: 'professors',
-  courses: 'courses',
-  programs: 'degreeprogram',
-  sections: 'section',
-  'student-sections': 'studentsection',
-  'student-degrees': 'studentdegreeprogram',
+const TABLE_CONFIG = {
+  students: {
+    table: 'students',
+    primaryKey: ['studentid'],
+    columns: ['studentid', 'firstname', 'lastname', 'major', 'email'],
+  },
+  professors: {
+    table: 'professors',
+    primaryKey: ['employeeid'],
+    columns: ['employeeid', 'firstname', 'lastname', 'email', 'majorofinstruction'],
+  },
+  courses: {
+    table: 'courses',
+    primaryKey: ['coursecode'],
+    columns: ['coursecode', 'coursename', 'credits', 'major', 'description'],
+  },
+  programs: {
+    table: 'degreeprogram',
+    primaryKey: ['degreename'],
+    columns: ['degreename', 'degreetype', 'schooldivision', 'enrolledstudentsmax', 'description'],
+  },
+  sections: {
+    table: 'section',
+    primaryKey: ['coursecode', 'sectionletter', 'meetingday', 'starttime'],
+    columns: [
+      'coursecode',
+      'sectionletter',
+      'meetingday',
+      'starttime',
+      'endtime',
+      'roomnum',
+      'maxenrolled',
+      'enrolledstudents',
+      'instructor',
+    ],
+  },
+  'student-sections': {
+    table: 'studentsection',
+    primaryKey: ['studentid', 'coursecode', 'sectionletter', 'meetingday', 'starttime'],
+    columns: ['studentid', 'coursecode', 'sectionletter', 'meetingday', 'starttime', 'grade'],
+  },
+  'student-degrees': {
+    table: 'studentdegreeprogram',
+    primaryKey: ['studentid', 'degreename'],
+    columns: ['studentid', 'degreename'],
+  },
 };
+
+const TABLE_MAP = Object.fromEntries(Object.entries(TABLE_CONFIG).map(([key, value]) => [key, value.table]));
 
 export function getDataSource() {
   return DATA_SOURCE;
@@ -29,6 +69,56 @@ export async function fetchTableData(tableKey) {
   }
 
   return fetchFromSupabase(tableName);
+}
+
+export async function createRecord(tableKey, payload) {
+  const config = getTableConfig(tableKey);
+  const normalizedPayload = normalizePayload(payload, config);
+  ensurePrimaryKeyFields(config, normalizedPayload);
+
+  if (DATA_SOURCE === 'sqlite') {
+    return postToApi(config.table, normalizedPayload);
+  }
+  const { data, error } = await supabase.from(config.table).insert(normalizedPayload).select();
+  if (error) {
+    throw new Error(error.message || 'Create failed');
+  }
+  return data?.[0] ?? null;
+}
+
+export async function updateRecord(tableKey, payload) {
+  const config = getTableConfig(tableKey);
+  const normalizedPayload = normalizePayload(payload, config);
+  const match = buildMatchObject(config, normalizedPayload);
+  const updateFields = stripPrimaryKeyFields(config, normalizedPayload);
+
+  if (Object.keys(updateFields).length === 0) {
+    throw new Error('No fields to update');
+  }
+
+  if (DATA_SOURCE === 'sqlite') {
+    return putToApi(config.table, { ...match, ...updateFields });
+  }
+  const { data, error } = await supabase.from(config.table).update(updateFields).match(match).select();
+  if (error) {
+    throw new Error(error.message || 'Update failed');
+  }
+  return data?.[0] ?? null;
+}
+
+export async function deleteRecord(tableKey, payload) {
+  const config = getTableConfig(tableKey);
+  const normalizedPayload = normalizePayload(payload, config);
+  const match = buildMatchObject(config, normalizedPayload);
+
+  if (DATA_SOURCE === 'sqlite') {
+    return deleteFromApi(config.table, match);
+  }
+  const { error } = await supabase.from(config.table).delete().match(match);
+  if (error) {
+    throw new Error(error.message || 'Delete failed');
+  }
+  return { ok: true };
 }
 
 // ---------- Student flows ----------
@@ -194,6 +284,86 @@ async function fetchFromSupabase(tableName) {
     throw new Error(error.message || 'Supabase request failed');
   }
   return data || [];
+}
+
+function getTableConfig(tableKey) {
+  const normalizedKey = String(tableKey || '').toLowerCase();
+  const config = TABLE_CONFIG[normalizedKey];
+  if (!config) {
+    throw new Error(`Unknown table: ${tableKey}`);
+  }
+  return config;
+}
+
+function normalizePayload(payload, config) {
+  const normalized = {};
+  Object.entries(payload || {}).forEach(([key, value]) => {
+    const lower = key.toLowerCase();
+    if (config.columns.includes(lower)) {
+      normalized[lower] = value;
+    }
+  });
+  return normalized;
+}
+
+function ensurePrimaryKeyFields(config, payload) {
+  const missing = config.primaryKey.filter((key) => payload[key] === undefined || payload[key] === null || payload[key] === '');
+  if (missing.length > 0) {
+    throw new Error(`Missing required fields: ${missing.join(', ')}`);
+  }
+}
+
+function buildMatchObject(config, payload) {
+  ensurePrimaryKeyFields(config, payload);
+  return config.primaryKey.reduce((acc, key) => {
+    acc[key] = payload[key];
+    return acc;
+  }, {});
+}
+
+function stripPrimaryKeyFields(config, payload) {
+  const clone = { ...payload };
+  config.primaryKey.forEach((key) => delete clone[key]);
+  return clone;
+}
+
+async function postToApi(tableName, body) {
+  const response = await fetch(`/api/${tableName}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({}));
+    throw new Error(err.error || 'Create failed');
+  }
+  return response.json();
+}
+
+async function putToApi(tableName, body) {
+  const response = await fetch(`/api/${tableName}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({}));
+    throw new Error(err.error || 'Update failed');
+  }
+  return response.json();
+}
+
+async function deleteFromApi(tableName, body) {
+  const response = await fetch(`/api/${tableName}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({}));
+    throw new Error(err.error || 'Delete failed');
+  }
+  return response.json();
 }
 
 // ---------- Supabase helpers ----------

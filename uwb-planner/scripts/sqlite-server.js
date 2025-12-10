@@ -13,15 +13,45 @@ const port = Number(process.env.API_PORT) || 4000;
 
 const schemaFile = path.join(rootDir, 'src', 'database', 'courseScheduler.session.sql');
 const dataFile = path.join(rootDir, 'src', 'database', 'dataInsertion.sql');
-const allowedTables = [
-  'students',
-  'professors',
-  'courses',
-  'section',
-  'degreeprogram',
-  'studentsection',
-  'studentdegreeprogram',
-];
+const tableConfigs = {
+  students: {
+    table: 'Students',
+    primaryKey: ['StudentID'],
+    columns: ['StudentID', 'FirstName', 'LastName', 'Major', 'Email'],
+  },
+  professors: {
+    table: 'Professors',
+    primaryKey: ['EmployeeID'],
+    columns: ['EmployeeID', 'FirstName', 'LastName', 'Email', 'MajorOfInstruction'],
+  },
+  courses: {
+    table: 'Courses',
+    primaryKey: ['CourseCode'],
+    columns: ['CourseCode', 'CourseName', 'Credits', 'Major', 'Description'],
+  },
+  section: {
+    table: 'Section',
+    primaryKey: ['CourseCode', 'SectionLetter', 'MeetingDay', 'StartTime'],
+    columns: ['CourseCode', 'SectionLetter', 'MeetingDay', 'StartTime', 'EndTime', 'RoomNum', 'MaxEnrolled', 'EnrolledStudents', 'Instructor'],
+  },
+  degreeprogram: {
+    table: 'DegreeProgram',
+    primaryKey: ['DegreeName'],
+    columns: ['DegreeName', 'DegreeType', 'SchoolDivision', 'EnrolledStudentsMax', 'Description'],
+  },
+  studentsection: {
+    table: 'StudentSection',
+    primaryKey: ['StudentID', 'CourseCode', 'SectionLetter', 'MeetingDay', 'StartTime'],
+    columns: ['StudentID', 'CourseCode', 'SectionLetter', 'MeetingDay', 'StartTime', 'Grade'],
+  },
+  studentdegreeprogram: {
+    table: 'StudentDegreeProgram',
+    primaryKey: ['StudentID', 'DegreeName'],
+    columns: ['StudentID', 'DegreeName'],
+  },
+};
+
+const allowedTables = Object.keys(tableConfigs);
 
 function runInTransaction(db, fn) {
   const trx = db.transaction(fn);
@@ -484,22 +514,143 @@ app.delete('/api/enroll', (req, res) => {
   }
 });
 
-// Generic table read (keep last so specific routes above win)
-app.get('/api/:table', (req, res) => {
-  const table = String(req.params.table || '').toLowerCase();
-  if (!allowedTables.includes(table)) {
+// Generic create
+app.post('/api/:table', (req, res) => {
+  const config = getTableConfig(req.params.table);
+  if (!config) {
     res.status(404).json({ error: 'Unknown table' });
     return;
   }
 
   try {
-    const rows = db.prepare(`SELECT * FROM ${table}`).all();
+    const payload = extractPayload(req.body, config);
+    const missing = config.primaryKey.filter((col) => payload[col] === undefined || payload[col] === null || payload[col] === '');
+    if (missing.length > 0) {
+      res.status(400).json({ error: `Missing required fields: ${missing.join(', ')}` });
+      return;
+    }
+    if (Object.keys(payload).length === 0) {
+      res.status(400).json({ error: 'No fields provided' });
+      return;
+    }
+
+    const columnsSql = Object.keys(payload).join(', ');
+    const placeholders = Object.keys(payload)
+      .map((col) => `@${col}`)
+      .join(', ');
+    const stmt = db.prepare(`INSERT INTO ${config.table} (${columnsSql}) VALUES (${placeholders})`);
+    const result = stmt.run(payload);
+    res.json({ ok: true, changes: result.changes });
+  } catch (error) {
+    console.error(`[sqlite] create failed for ${config.table}`, error);
+    res.status(500).json({ error: 'Failed to create record' });
+  }
+});
+
+// Generic update
+app.put('/api/:table', (req, res) => {
+  const config = getTableConfig(req.params.table);
+  if (!config) {
+    res.status(404).json({ error: 'Unknown table' });
+    return;
+  }
+
+  try {
+    const payload = extractPayload(req.body, config);
+    const matchParams = {};
+    for (const col of config.primaryKey) {
+      const value = payload[col];
+      if (value === undefined || value === null || value === '') {
+        res.status(400).json({ error: `Missing key field: ${col}` });
+        return;
+      }
+      matchParams[col] = value;
+      delete payload[col];
+    }
+
+    const updateColumns = Object.keys(payload);
+    if (updateColumns.length === 0) {
+      res.status(400).json({ error: 'No fields to update' });
+      return;
+    }
+
+    const params = {};
+    updateColumns.forEach((col) => {
+      params[`set_${col}`] = payload[col];
+    });
+    Object.entries(matchParams).forEach(([col, value]) => {
+      params[`where_${col}`] = value;
+    });
+
+    const setSql = updateColumns.map((col) => `${col} = @set_${col}`).join(', ');
+    const whereSql = config.primaryKey.map((col) => `${col} = @where_${col}`).join(' AND ');
+    const stmt = db.prepare(`UPDATE ${config.table} SET ${setSql} WHERE ${whereSql}`);
+    const result = stmt.run(params);
+    res.json({ ok: true, changes: result.changes });
+  } catch (error) {
+    console.error(`[sqlite] update failed for ${config.table}`, error);
+    res.status(500).json({ error: 'Failed to update record' });
+  }
+});
+
+// Generic delete
+app.delete('/api/:table', (req, res) => {
+  const config = getTableConfig(req.params.table);
+  if (!config) {
+    res.status(404).json({ error: 'Unknown table' });
+    return;
+  }
+
+  try {
+    const payload = extractPayload(req.body, config);
+    const missing = config.primaryKey.filter((col) => payload[col] === undefined || payload[col] === null || payload[col] === '');
+    if (missing.length > 0) {
+      res.status(400).json({ error: `Missing key field(s): ${missing.join(', ')}` });
+      return;
+    }
+
+    const whereSql = config.primaryKey.map((col) => `${col} = @${col}`).join(' AND ');
+    const stmt = db.prepare(`DELETE FROM ${config.table} WHERE ${whereSql}`);
+    const result = stmt.run(payload);
+    res.json({ ok: true, changes: result.changes });
+  } catch (error) {
+    console.error(`[sqlite] delete failed for ${config.table}`, error);
+    res.status(500).json({ error: 'Failed to delete record' });
+  }
+});
+
+// Generic table read (keep last so specific routes above win)
+app.get('/api/:table', (req, res) => {
+  const config = getTableConfig(req.params.table);
+  if (!config) {
+    res.status(404).json({ error: 'Unknown table' });
+    return;
+  }
+
+  try {
+    const rows = db.prepare(`SELECT * FROM ${config.table}`).all();
     res.json(rows);
   } catch (error) {
-    console.error(`[sqlite] Failed to read from ${table}:`, error);
+    console.error(`[sqlite] Failed to read from ${config.table}:`, error);
     res.status(500).json({ error: 'Failed to fetch data' });
   }
 });
+
+function getTableConfig(name) {
+  const key = String(name || '').toLowerCase();
+  return tableConfigs[key];
+}
+
+function extractPayload(body, config) {
+  const payload = {};
+  config.columns.forEach((col) => {
+    const matchKey = Object.keys(body || {}).find((key) => key.toLowerCase() === col.toLowerCase());
+    if (matchKey !== undefined && body[matchKey] !== undefined) {
+      payload[col] = body[matchKey];
+    }
+  });
+  return payload;
+}
 
 app.listen(port, () => {
   console.log(`[sqlite] API listening on http://localhost:${port}`);

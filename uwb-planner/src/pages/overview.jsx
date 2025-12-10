@@ -18,6 +18,9 @@ export default function Home() {
         <Link className="button-link" to="/professor">
           Open Professor Portal
         </Link>
+        <Link className="button-link" to="/admin">
+          Open Admin Portal
+        </Link>
         <a className="button-link" href="#/sample-queries">
           View Sample Queries
         </a>

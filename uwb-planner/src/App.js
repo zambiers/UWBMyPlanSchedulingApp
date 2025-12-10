@@ -13,6 +13,7 @@ import StudentDegrees from './pages/studentDegrees';
 import StudentDashboard from './pages/studentDashboard';
 import SampleQueries from './pages/sampleQueries';
 import ProfessorDashboard from './pages/professorDashboard';
+import AdminPortal from './pages/adminPortal';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="/student-degrees" element={<StudentDegrees />} />
             <Route path="/sample-queries" element={<SampleQueries />} />
             <Route path="/professor" element={<ProfessorDashboard />} />
+            <Route path="/admin" element={<AdminPortal />} />
           </Route>
         </Routes>
       </Router>
